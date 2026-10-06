@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Types of Life Insurance Explained</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F7FB;--panel:#FFFFFF;--ink:#0E2A47;--muted:#4A6078;--accent:#1F6FEB;--rise:#F5A524;--line:#D3DEEB;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0A1B2E;--panel:#12294A;--ink:#EEF3FA;--muted:#A9BBD1;--accent:#5C9BFF;--rise:#FFB84A;--line:#284668}}
+:root[data-theme="dark"]{--bg:#0A1B2E;--panel:#12294A;--ink:#EEF3FA;--muted:#A9BBD1;--accent:#5C9BFF;--rise:#FFB84A;--line:#284668}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;display:flex;flex-direction:column;overflow:hidden}
+.deck{flex:1;position:relative;min-height:0}
+.slide{position:absolute;inset:0;padding:clamp(20px,5vw,64px);display:none;flex-direction:column;justify-content:center;overflow-y:auto}
+.slide.on{display:flex}
+.backlink{align-self:flex-start;margin-top:18px;display:inline-block;padding:12px 20px;border-radius:12px;background:var(--accent);color:#fff;font-weight:600;text-decoration:none}
+.backlink:hover{filter:brightness(1.1)}
+h1{font-size:clamp(32px,7vw,72px);line-height:1.05;font-weight:800;margin:0 0 16px;letter-spacing:-.02em;max-width:14ch}
+h2{font-size:clamp(26px,4.5vw,44px);line-height:1.1;font-weight:800;margin:0 0 24px;letter-spacing:-.01em}
+p.sub{font-size:clamp(16px,2.4vw,24px);color:var(--muted);margin:0;max-width:34ch;line-height:1.4}
+.title-wrap{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.steps{display:flex;align-items:flex-end;gap:8px;height:clamp(120px,24vw,240px)}
+.steps i{display:block;width:clamp(28px,6vw,60px);border-radius:6px 6px 0 0;background:var(--accent)}
+.steps i:nth-child(1){height:25%;opacity:.45}.steps i:nth-child(2){height:50%;opacity:.65}
+.steps i:nth-child(3){height:75%;opacity:.85}.steps i:nth-child(4){height:100%;background:var(--rise)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:10px;padding:18px 20px}
+.card b{display:block;font-size:clamp(17px,2vw,21px);margin-bottom:6px}
+.card span{color:var(--muted);font-size:clamp(14px,1.7vw,17px);line-height:1.4}
+.tree{display:flex;flex-direction:column;align-items:center;gap:0}
+.root{font-weight:800;padding:12px 24px;border-radius:10px;background:var(--ink);color:var(--bg);font-size:clamp(16px,2.2vw,22px)}
+.stem{width:2px;height:24px;background:var(--line)}
+.fam{display:grid;grid-template-columns:1fr 2.4fr;gap:16px;width:100%;max-width:980px}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+.box h3{margin:0 0 4px;font-size:clamp(18px,2.4vw,24px)}
+.box p{margin:0;color:var(--muted);font-size:clamp(14px,1.7vw,17px)}
+.box.perm{border-top:5px solid var(--rise)}.box.term{border-top:5px solid var(--accent)}
+.kids{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.kid{border:1px solid var(--line);border-radius:8px;padding:10px;font-weight:600;font-size:clamp(13px,1.7vw,17px)}
+.goal{margin-top:24px;color:var(--muted);font-size:clamp(15px,2vw,20px);text-align:center}
+@media (max-width:640px){.fam{grid-template-columns:1fr}.kids{grid-template-columns:1fr}}
+nav{display:flex;align-items:center;justify-content:space-between;padding:12px clamp(16px,4vw,48px);border-top:1px solid var(--line);gap:12px}
+nav button{font:inherit;font-weight:600;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px 18px;cursor:pointer}
+nav button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+nav button:disabled{opacity:.4;cursor:default}
+.dots{display:flex;gap:8px}.dots span{width:10px;height:10px;border-radius:50%;background:var(--line)}.dots span.on{background:var(--rise)}
+.foot{font-size:12px;color:var(--muted);text-align:center;padding:0 16px 8px}
+
+.steps i{transform:scaleY(0);transform-origin:bottom;transition:transform .7s cubic-bezier(.2,.9,.3,1.1)}
+.steps i.in{transform:scaleY(1)}
+.card,.root,.stem,.box,.kid,.goal{opacity:0;transform:translateY(14px);transition:opacity .45s ease,transform .45s ease}
+.card.in,.root.in,.stem.in,.box.in,.kid.in,.goal.in{opacity:1;transform:none}
+.deck{cursor:pointer}
+@media (prefers-reduced-motion:reduce){.steps i,.card,.root,.stem,.box,.kid,.goal{transition:none}}
+
+.rows{display:flex;flex-direction:column;gap:12px;margin-bottom:24px}
+.row{display:flex;align-items:center;gap:14px}
+.row label{width:76px;font-weight:600;color:var(--muted);font-size:clamp(14px,1.8vw,18px);flex:none}
+.track{flex:1;height:clamp(30px,5vw,44px)}
+.bar{height:100%;border-radius:8px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .8s cubic-bezier(.2,.8,.2,1);display:flex;align-items:center;padding-left:14px;color:#fff;font-weight:600;font-size:clamp(13px,1.7vw,17px);white-space:nowrap;overflow:hidden}
+.bar.in{transform:scaleX(1)}
+.bar.b1{width:34%}.bar.b2{width:67%}.bar.b3{width:100%}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:16px}
+.card.warn{border-left-color:var(--rise)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.chip{border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:8px 16px;font-weight:600;font-size:clamp(14px,1.8vw,18px);opacity:0;transform:translateY(14px);transition:opacity .45s ease,transform .45s ease}
+.chip.in{opacity:1;transform:none}
+.note{margin:16px 0 0;color:var(--muted);font-size:clamp(14px,1.8vw,18px);max-width:70ch;line-height:1.45;opacity:0;transform:translateY(14px);transition:opacity .45s ease,transform .45s ease}
+.note.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.bar,.chip,.note{transition:none}}
+
+.chart{margin-bottom:20px}
+.chart svg{width:100%;height:auto;max-height:44vh;display:block}
+.chart .g{opacity:0;transition:opacity .6s ease}
+.chart .g.in{opacity:1}
+.chart .cov{transform-box:fill-box;transform-origin:left;transform:scaleX(0);transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.chart .cov.in{transform:scaleX(1)}
+.chart .ax{stroke:var(--muted);stroke-width:2;fill:none}
+.chart .fillc{fill:var(--accent);fill-opacity:.18;stroke:var(--accent);stroke-width:3}
+.chart .gap{fill:none;stroke:var(--rise);stroke-width:2.5;stroke-dasharray:7 6}
+.chart .endl{stroke:var(--rise);stroke-width:2.5;stroke-dasharray:7 6}
+.chart text{font-family:inherit;fill:var(--ink);font-size:15px}
+.chart .m{fill:var(--muted);font-size:13px}
+.chart .h{font-weight:800;font-size:17px}
+@media (prefers-reduced-motion:reduce){.chart .g,.chart .cov{transition:none}}
+
+.tl{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.tl li{color:var(--muted);font-size:clamp(14px,1.7vw,17px);line-height:1.4;padding-left:16px;position:relative}
+.tl li:before{content:"";position:absolute;left:0;top:.6em;width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.tl.w li:before{background:var(--rise)}
+.tl li.an{opacity:0;transform:translateY(10px);transition:opacity .45s ease,transform .45s ease}
+.tl li.an.in{opacity:1;transform:none}
+.chart .box2{fill:var(--accent);fill-opacity:.12;stroke:var(--accent);stroke-width:3}
+.chart .cash{fill:var(--rise);fill-opacity:.4;stroke:var(--rise);stroke-width:3}
+.chart .db{stroke:var(--accent);stroke-width:3;stroke-dasharray:3 6;stroke-linecap:round}
+@media (prefers-reduced-motion:reduce){.tl li.an{transition:none}}
+
+.tt,.stack{display:grid}
+.tt h2,.pane{grid-area:1/1}
+.tt h2{margin:0 0 16px}
+.ttl{opacity:0;transition:opacity .5s ease}
+.ttl.in{opacity:1}
+.merged .chart{margin-bottom:12px}
+.merged .chart svg{max-height:34vh}
+.merged .two{margin-bottom:12px}
+@media (prefers-reduced-motion:reduce){.ttl{transition:none}}
+
+.chart .cbox{fill:var(--panel);stroke:var(--muted);stroke-width:2.5}
+.chart .gro{fill:var(--rise);fill-opacity:.45}
+.chart .arr{fill:none;stroke:var(--ink);stroke-width:2.5;marker-end:url(#ah)}
+.chart .mk{fill:var(--ink)}
+.chart .big{font-size:32px;font-weight:800;fill:var(--rise)}
+
+.chart .ln{fill:none;stroke-width:3.5;stroke-linejoin:round;stroke-linecap:round}
+.chart .lf{stroke:var(--muted)}.chart .lv{stroke:var(--rise)}.chart .li2{stroke:var(--accent);stroke-width:5}
+.chart .t-f{fill:var(--muted);font-weight:700}.chart .t-v{fill:var(--rise);font-weight:700}.chart .t-i{fill:var(--accent);font-weight:800}
+.chart .st{stroke:var(--line);stroke-width:2;stroke-dasharray:5 5;fill:none}
+.chart .ann{fill:var(--accent);font-weight:700;font-size:13px}
+.tl li b{display:inline;margin:0;font-size:inherit;color:var(--ink)}
+
+.gl{width:100%;max-width:130px;height:auto;display:block;margin-bottom:10px}
+.gr{fill:var(--accent);fill-opacity:.15;stroke:var(--accent);stroke-width:2}
+.ga{fill:var(--rise);fill-opacity:.45}
+.gw{fill:none;stroke:var(--rise);stroke-width:3;stroke-linecap:round}
+.gd{stroke:var(--rise);stroke-width:2.5;stroke-dasharray:4 4}
+.gi{fill:none;stroke:var(--accent);stroke-width:3.5;stroke-linejoin:round}
+.card em{display:block;font-style:normal;font-weight:700;color:var(--accent);margin-bottom:6px;font-size:clamp(14px,1.7vw,17px);line-height:1.3}
+
+.cap{min-height:2.6em;padding:6px clamp(16px,4vw,48px);text-align:center;color:var(--muted);font-size:clamp(13px,1.6vw,16px);line-height:1.35}
+.ctl{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+nav{flex-wrap:wrap}
+nav button[aria-pressed="true"]{border-color:var(--accent);color:var(--accent)}
+.hint{position:absolute;right:16px;bottom:10px;font-size:13px;font-weight:600;color:var(--accent);background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:6px 14px;pointer-events:none;z-index:2}
+</style>
+</head>
+<body>
+<main class="deck">
+  <section class="slide on">
+    <div class="title-wrap">
+      <div>
+        <h1>Types of life insurance explained</h1>
+        <p class="sub">Term, whole life, universal life, and indexed universal life</p>
+      </div>
+      <div class="steps" aria-hidden="true"><i data-step="1"></i><i data-step="2"></i><i data-step="3"></i><i data-step="4"></i></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>Before we begin</h2>
+    <div class="grid">
+      <div class="card" data-step="1"><b>Education, not a recommendation</b><span>We don't know your personal situation.</span></div>
+      <div class="card" data-step="2"><b>Talk to a licensed agent</b><span>Verify any license with your state Department of Insurance.</span></div>
+      <div class="card" data-step="3"><b>Not legal or tax advice</b><span>Consult an attorney or tax professional.</span></div>
+      <div class="card" data-step="4"><b>Examples are hypothetical</b><span>Potential results are not guaranteed.</span></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>The big picture</h2>
+    <div class="tree">
+      <div class="root" data-step="1">Life insurance</div>
+      <div class="stem" data-step="2"></div>
+      <div class="fam">
+        <div class="box term" data-step="2"><h3>Term</h3><p>Temporary coverage</p></div>
+        <div class="box perm" data-step="3"><h3>Permanent</h3><p>Lifelong coverage</p>
+          <div class="kids"><div class="kid" data-step="4">Whole life</div><div class="kid" data-step="5">Universal life</div><div class="kid" data-step="6">Indexed universal life</div></div>
+        </div>
+      </div>
+    </div>
+    <p class="goal" data-step="7">The goal: understand what each one is designed to do.</p>
+  </section>
+
+  <section class="slide merged">
+    <div class="tt">
+      <h2 class="ttl" data-step="0" data-hide="7">What is term life insurance?</h2>
+      <h2 class="ttl" data-step="7">Term life: what to know</h2>
+    </div>
+    <div class="chart">
+      <svg viewBox="0 0 640 250" role="img" aria-label="Chart: a term policy provides a level amount of coverage for a set period, then coverage may end.">
+        <g class="g" data-step="1">
+          <path class="ax" d="M60 24V200H620"/>
+          <text class="m" x="52" y="55" text-anchor="end">$1M</text>
+          <text class="m" x="18" y="118" text-anchor="middle" transform="rotate(-90 18 118)">Coverage amount</text>
+          <text class="m" x="60" y="220">Policy starts</text>
+          <text class="m" x="340" y="240" text-anchor="middle">Time</text>
+        </g>
+        <g data-step="2" class="cov">
+          <rect class="fillc" x="60" y="50" width="320" height="150" rx="4"/>
+          <text class="h" x="220" y="118" text-anchor="middle">Coverage in force</text>
+          <text class="m" x="220" y="142" text-anchor="middle">Pays a death benefit during the term</text>
+        </g>
+        <g class="g" data-step="3">
+          <line class="endl" x1="380" y1="34" x2="380" y2="200"/>
+          <text class="h" x="380" y="24" text-anchor="middle">Term ends</text>
+        </g>
+        <g class="g" data-step="4">
+          <rect class="gap" x="380" y="50" width="240" height="150" rx="4"/>
+          <text class="h" x="500" y="118" text-anchor="middle">Coverage may end</text>
+          <text class="m" x="500" y="142" text-anchor="middle">Ask about renewal or conversion</text>
+        </g>
+        <text class="m" x="620" y="240" text-anchor="end">Hypothetical example</text>
+      </svg>
+    </div>
+    <div class="stack">
+      <div class="pane">
+        <div class="two">
+          <div class="card" data-step="5" data-hide="7"><b>Pays a death benefit</b><span>If the insured passes away during the term.</span></div>
+          <div class="card warn" data-step="6" data-hide="7"><b>Generally no cash value</b><span>It provides protection only.</span></div>
+        </div>
+      </div>
+      <div class="pane">
+        <div class="two">
+          <div class="card" data-step="8"><b>Strength</b><span>Usually the lowest cost for the amount of coverage.</span></div>
+          <div class="card warn" data-step="9"><b>Limitation</b><span>Coverage may end when the term does.</span></div>
+        </div>
+        <div class="card" data-step="10"><b>Options to ask about</b>
+          <div class="chips"><span class="chip" data-step="11">Renewal</span><span class="chip" data-step="12">Conversion to permanent coverage</span><span class="chip" data-step="13">Return of premium (ROP)</span></div>
+        </div>
+        <p class="note" data-step="14">ROP costs more in premium in exchange for a refund of premiums if you outlive the term.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide merged">
+    <div class="tt">
+      <h2 class="ttl" data-step="0" data-hide="9">How whole life works</h2>
+      <h2 class="ttl" data-step="9" data-hide="17">Whole life: strengths and trade-offs</h2>
+      <h2 class="ttl" data-step="17">Death benefit and cash value</h2>
+    </div>
+    <div class="chart">
+      <svg viewBox="0 0 640 250" role="img" aria-label="Chart: in whole life, cash value builds gradually inside the policy over time, beneath a level death benefit.">
+        <g class="g" data-step="1">
+          <path class="ax" d="M60 24V200H620"/>
+          <text class="m" x="52" y="55" text-anchor="end">$1M</text>
+          <text class="m" x="18" y="118" text-anchor="middle" transform="rotate(-90 18 118)">Amount</text>
+          <text class="m" x="340" y="240" text-anchor="middle">Time</text>
+        </g>
+        <g class="g" data-step="2">
+          <rect class="box2" x="60" y="50" width="540" height="150" rx="4"/>
+          <line class="db" x1="60" y1="50" x2="600" y2="50"/>
+          <text class="h" x="72" y="42">Death benefit</text>
+          <text class="h" x="82" y="92">Lifetime coverage</text>
+        </g>
+        <g data-step="3" class="cov">
+          <path class="cash" d="M60 200C280 198 450 165 600 50L600 200Z"/>
+          <text class="h" x="470" y="182">Cash value</text>
+        </g>
+        <g class="g" data-step="4">
+          <text class="m" x="72" y="180">Early years: access is limited</text>
+        </g>
+        <text class="m" x="620" y="240" text-anchor="end">Hypothetical, not to scale</text>
+      </svg>
+    </div>
+    <div class="stack">
+      <div class="pane">
+        <div class="grid">
+          <div class="card" data-step="5" data-hide="9"><b>Permanent coverage</b><span>Designed to last your lifetime if premiums are paid.</span></div>
+          <div class="card" data-step="6" data-hide="9"><b>Fixed premium</b><span>The amount you pay does not normally change.</span></div>
+          <div class="card" data-step="7" data-hide="9"><b>Guaranteed death benefit</b><span>As long as the required premiums are paid.</span></div>
+          <div class="card warn" data-step="8" data-hide="9"><b>Cash value</b><span>Grows according to the policy's terms.</span></div>
+        </div>
+      </div>
+      <div class="pane">
+        <div class="two">
+          <div class="card" data-step="10" data-hide="17"><b>Strengths</b>
+            <ul class="tl"><li>Predictability</li><li>Lifetime coverage</li><li>Guaranteed elements</li></ul></div>
+          <div class="card warn" data-step="11" data-hide="17"><b>Trade-offs</b>
+            <ul class="tl w">
+              <li class="an" data-step="12">Higher premiums than term</li>
+              <li class="an" data-step="13">Cash value builds gradually, so early access is limited</li>
+              <li class="an" data-step="14">Little flexibility to change premiums</li>
+              <li class="an" data-step="15">Dividends (on participating policies) are not guaranteed</li>
+            </ul></div>
+        </div>
+        <p class="note" data-step="16" data-hide="17">Related: final expense insurance is a smaller whole life policy designed for end-of-life costs.</p>
+      </div>
+      <div class="pane">
+        <p class="note" data-step="18">Cash value is generally part of the policy, not an add-on to the death benefit. The exact payout depends on the policy and any loans.</p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="slide merged">
+    <div class="tt">
+      <h2 class="ttl" data-step="0" data-hide="9">How universal life works</h2>
+      <h2 class="ttl" data-step="9">Universal life: flexibility and risks</h2>
+    </div>
+    <div class="chart">
+      <svg viewBox="0 0 640 250" role="img" aria-label="Diagram: premiums go into the cash value under the death benefit. Interest is credited to the cash value, and the monthly cost of insurance is taken out of it.">
+        <defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="mk" d="M0 0L10 5L0 10z"/></marker></defs>
+        <g class="g" data-step="1">
+          <path class="box2" d="M60 200C60 90 170 34 320 34C470 34 580 90 580 200Z"/>
+          <text class="h" x="320" y="64" text-anchor="middle">Death benefit (coverage)</text>
+        </g>
+        <g class="g" data-step="2">
+          <rect class="cbox" x="230" y="105" width="180" height="95" rx="14"/>
+          <text class="h" x="320" y="132" text-anchor="middle">Cash value</text>
+        </g>
+        <g class="g" data-step="3">
+          <text class="big" x="604" y="52" text-anchor="middle">$</text>
+          <text class="m" x="604" y="72" text-anchor="middle">Premium</text>
+          <path class="arr" d="M586 84C520 72 452 86 416 112"/>
+        </g>
+        <g class="g" data-step="4">
+          <path class="gro" d="M230 150H410V186a14 14 0 0 1-14 14H244a14 14 0 0 1-14-14Z"/>
+          <text class="m" x="448" y="171">Interest credited</text>
+          <path class="arr" d="M444 166L416 166"/>
+        </g>
+        <g class="g" data-step="5">
+          <path class="arr" d="M226 150L192 150"/>
+          <text class="m" x="96" y="147">Monthly cost</text>
+          <text class="m" x="96" y="165">of insurance</text>
+        </g>
+        <text class="m" x="620" y="240" text-anchor="end">Hypothetical, not to scale</text>
+      </svg>
+    </div>
+    <div class="stack">
+      <div class="pane">
+        <div class="grid">
+          <div class="card" data-step="6" data-hide="9"><b>Premium goes in</b><span>Your payment goes into the policy.</span></div>
+          <div class="card warn" data-step="7" data-hide="9"><b>Cost of insurance comes out</b><span>Each month, it is taken from the cash value.</span></div>
+          <div class="card" data-step="8" data-hide="9"><b>The rest stays and earns interest</b><span>What's left remains in the cash value.</span></div>
+        </div>
+      </div>
+      <div class="pane">
+        <div class="two">
+          <div class="card" data-step="10"><b>Flexibility</b>
+            <ul class="tl"><li>Adjustable premiums</li><li>Adjustable death benefit</li></ul></div>
+          <div class="card warn" data-step="11"><b>Risks</b>
+            <ul class="tl w">
+              <li class="an" data-step="12">Cash value is generally not guaranteed</li>
+              <li class="an" data-step="13">Underfunding can cause the policy to lapse</li>
+              <li class="an" data-step="14">Costs are higher than term</li>
+            </ul></div>
+        </div>
+        <p class="note" data-step="15">Related: guaranteed universal life focuses on a guaranteed death benefit rather than cash value.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide merged">
+    <div class="tt">
+      <h2 class="ttl" data-step="0" data-hide="11">Indexed universal life: strengths and trade-offs</h2>
+      <h2 class="ttl" data-step="11" data-hide="15">Three ways cash value can be credited</h2>
+      <h2 class="ttl" data-step="15">What is indexing?</h2>
+    </div>
+    <div class="chart">
+      <svg viewBox="0 0 640 250" role="img" aria-label="Hypothetical chart comparing a fixed account, a variable account, and an indexed account over time.">
+        <g class="g" data-step="1">
+          <path class="ax" d="M60 24V200H570"/>
+          <path class="st" d="M60 150H555"/>
+          <text class="m" x="555" y="166" text-anchor="end">Starting value</text>
+          <text class="m" x="18" y="112" text-anchor="middle" transform="rotate(-90 18 112)">Hypothetical value</text>
+          <text class="m" x="315" y="240" text-anchor="middle">Time</text>
+        </g>
+        <g class="g" data-step="2">
+          <path class="ln lf" d="M60 150L555 122"/>
+          <text class="t-f" x="566" y="126" font-size="15">Fixed</text>
+        </g>
+        <g class="g" data-step="3">
+          <polyline class="ln lv" points="60,150 115,118 170,96 225,160 280,182 335,128 390,98 445,142 500,76 555,56"/>
+          <text class="t-v" x="566" y="60" font-size="15">Variable</text>
+        </g>
+        <g class="g" data-step="4">
+          <polyline class="ln li2" points="60,150 115,134 170,120 225,120 280,120 335,108 390,100 445,100 500,90 555,86"/>
+          <text class="t-i" x="566" y="90" font-size="15">Indexed</text>
+        </g>
+        <g class="g" data-step="19">
+          <text class="ann" x="445" y="174" text-anchor="middle">Cap limits</text>
+          <text class="ann" x="445" y="190" text-anchor="middle">the upside</text>
+        </g>
+        <g class="g" data-step="21">
+          <text class="ann" x="245" y="94" text-anchor="middle">0% floor:</text>
+          <text class="ann" x="245" y="109" text-anchor="middle">flat, not down</text>
+        </g>
+        <text class="m" x="630" y="240" text-anchor="end">Hypothetical, not a prediction</text>
+      </svg>
+    </div>
+    <div class="stack">
+      <div class="pane">
+        <div class="two">
+          <div class="card" data-step="5" data-hide="11"><b>Strengths</b>
+            <ul class="tl"><li>Potential for growth, with protection from index losses</li><li>Cash value access through loans and withdrawals, which may have tax advantages if structured properly</li></ul></div>
+          <div class="card warn" data-step="6" data-hide="11"><b>Trade-offs</b>
+            <ul class="tl w">
+              <li class="an" data-step="7">Higher cost than term</li>
+              <li class="an" data-step="8">Growth is not guaranteed and is limited by caps</li>
+              <li class="an" data-step="9">Policy charges still apply, and loans can cause a lapse if mismanaged</li>
+              <li class="an" data-step="10">Illustrations are hypothetical, not promises</li>
+            </ul></div>
+        </div>
+      </div>
+      <div class="pane">
+        <div class="grid">
+          <div class="card" data-step="12" data-hide="15"><b>Fixed account</b><span>A stated interest rate.</span></div>
+          <div class="card" data-step="13" data-hide="15"><b>Indexed account</b><span>Growth linked to an index, with limits on the upside and a floor on the downside.</span></div>
+          <div class="card warn" data-step="14" data-hide="15"><b>Variable account</b><span>Market exposure with gain and loss potential. Requires a securities license to discuss (VUL).</span></div>
+        </div>
+      </div>
+      <div class="pane">
+        <div class="two">
+          <div class="card" data-step="16"><b>Interest based on an index</b><span>An IUL is a universal life policy with interest credited based on an index's performance.</span></div>
+          <div class="card warn" data-step="17"><b>Not invested directly in the market</b><span>Your cash value is not placed in stocks or an index fund.</span></div>
+        </div>
+        <div class="card" data-step="18"><b>Common terms</b>
+          <ul class="tl">
+            <li class="an" data-step="19"><b>Cap:</b> the maximum rate that can be credited</li>
+            <li class="an" data-step="20"><b>Participation rate:</b> the share of the index gain that counts</li>
+            <li class="an" data-step="21"><b>Floor:</b> the minimum credit, often 0%</li>
+          </ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>The four types at a glance</h2>
+    <div class="grid">
+      <div class="card" data-step="1">
+        <svg class="gl" viewBox="0 0 120 48" aria-hidden="true"><rect class="gr" x="4" y="10" width="66" height="34" rx="3"/><line class="gd" x1="70" y1="6" x2="70" y2="44"/></svg>
+        <b>Term</b><em>Most affordable, but time-limited</em><span>Coverage for a set period, generally with no cash value.</span></div>
+      <div class="card" data-step="2">
+        <svg class="gl" viewBox="0 0 120 48" aria-hidden="true"><rect class="gr" x="4" y="10" width="112" height="34" rx="3"/><path class="ga" d="M4 44C60 43 90 36 116 10V44Z"/></svg>
+        <b>Whole life</b><em>Lifetime coverage, fixed and less flexible</em><span>Fixed premium and gradual cash value, with limited control.</span></div>
+      <div class="card" data-step="3">
+        <svg class="gl" viewBox="0 0 120 48" aria-hidden="true"><rect class="gr" x="4" y="10" width="112" height="34" rx="3"/><path class="gw" d="M6 38C28 38 38 24 58 28S90 34 114 20"/></svg>
+        <b>Universal life</b><em>Flexible, with cash value that can help pay for coverage</em><span>Adjust premiums and death benefit. Cash value can cover the cost of insurance.</span></div>
+      <div class="card warn" data-step="4">
+        <svg class="gl" viewBox="0 0 120 48" aria-hidden="true"><rect class="gr" x="4" y="10" width="112" height="34" rx="3"/><polyline class="gi" points="6,40 30,34 50,34 70,26 90,26 114,17"/></svg>
+        <b>Indexed universal life</b><em>Universal life with index-linked growth</em><span>Death benefit plus cash value. A 0% floor protects against index losses, but growth is capped.</span></div>
+    </div>
+    <p class="note" data-step="5">Each one is designed for a different need. A licensed agent can help you find what fits your situation.</p>
+    <a class="backlink" href="/#products" onclick="event.stopPropagation()">&larr; Back to Secure Your Future</a>
+  </section>
+  <div class="hint" id="hint"></div>
+</main>
+<div class="foot">Click once to play each slide, then click again for the next. For education only; not a recommendation or an official illustration.</div>
+<div class="cap" id="cap" aria-live="polite"></div>
+<nav>
+  <button id="prev">Back</button>
+  <div class="dots" id="dots"></div>
+  <div class="ctl"><button id="snd" aria-pressed="true">Narration: On</button><button id="au">Pause</button><button id="rep">Replay</button></div>
+  <button id="next">Next</button>
+</nav>
+<script>
+(function(){
+  var NARR=[
+    ["Life insurance comes in several forms, and the names can be confusing. In this series, we'll break down four common types.","Term.","Whole life.","Universal life.","And indexed universal life."],
+    ["Before we start, a few quick notes.","This is education, not a recommendation, because I don't know your personal situation.","If you want to talk about coverage, talk with a licensed agent. You can verify any agent's license through your state Department of Insurance.","Nothing here is legal or tax advice, so check with an attorney or tax professional on those questions.","And any examples we use are hypothetical. Potential results are not guaranteed."],
+    ["Here's the big picture.","Life insurance falls into two families.","Term insurance is temporary coverage.","Permanent insurance is designed to last your lifetime, as long as the policy stays in force.","Within the permanent family, we'll look at three types: whole life,","universal life,","and indexed universal life.","The goal isn't to decide which one is best. It's to understand what each one is designed to do. Let's start with term."],
+    ["","Here's how term coverage looks over time. Across the bottom is time, and up the side is the amount of coverage.","When a term policy starts, that coverage is in place for a set period. Common lengths are 10, 20, or 30 years.","But the term has an end date.","After it ends, the coverage may end too.","If the insured passes away during the term, the policy pays a death benefit to the beneficiaries.","And term generally has no cash value. It's protection, and that's what it's designed to do.","So what should you know about term?","The strength is cost. It's usually the lowest-priced way to get a given amount of coverage.","The limitation is that coverage may end when the term does.","That's why it's worth asking about your options.","Can the policy renew, and at what premium?","Can it convert to permanent coverage? Some people use term as a starting point. They begin with lower-cost coverage, and if the policy has a conversion option, they may be able to convert it later without a new health exam. Permanent coverage costs more, but conversion can be a way to keep protection in place if your health has changed.","And is a return of premium version available?","Return of premium costs more in premium, but if you outlive the term, you may get those premiums refunded. Next, we'll look at whole life."],
+    ["","Whole life is a type of permanent insurance, designed to last your entire life as long as the premiums are paid. Here's how it looks over time.","The blue box is the death benefit, which stays in place for life.","The amber area is the cash value.","It builds gradually inside the policy, which is why access is limited in the early years.","Here's how it works. It's permanent coverage, designed to last your lifetime.","The premium is fixed, so it doesn't normally change.","The death benefit is guaranteed, as long as the required premiums are paid.","And the cash value grows according to the policy's terms.","So what are the strengths and trade-offs?","The main strength is predictability. You have lifetime coverage and guaranteed elements you can plan around.","There are trade-offs, too.","Premiums are higher than term.","Cash value builds gradually, so early access is limited.","There's little flexibility to change your premium.","And dividends, which some policies pay, are not guaranteed.","You may also hear about final expense insurance. It's a smaller whole life policy designed to cover end-of-life costs.","One more thing about this chart.","Cash value is generally part of the policy. It's not an extra amount added on top of the death benefit. The exact payout depends on the policy and on any loans that haven't been repaid. Next, we'll look at universal life, which adds flexibility to permanent coverage."],
+    ["","Universal life is a type of permanent insurance that adds flexibility. In this diagram, the large arch is your coverage, the death benefit.","Inside it is the cash value.","Your premium payments go into the policy, into the cash value.","The cash value earns interest as the policy credits it. That's the growth you see in amber.","Each month, the cost of insurance is taken out of the cash value. That's what pays for the coverage.","So the pattern is simple. Premium goes in.","The cost of insurance comes out.","And what's left stays in the cash value and keeps earning interest.","So what are the flexibility and risks?","The flexibility is the point of universal life. You can adjust your premiums, and you can adjust your death benefit as your needs change.","There are risks to understand.","The cash value is generally not guaranteed.","If the policy is underfunded, it can lapse.","And the costs are higher than term.","You may also hear about guaranteed universal life. It focuses on a guaranteed death benefit rather than on cash value. Next, we'll look at indexed universal life."],
+    ["","Indexed universal life is a type of permanent insurance that credits interest to your cash value based on an index. On this hypothetical chart, you can see how it compares with other ways cash value can be credited.","A fixed account grows slowly and steadily.","A variable account moves with the market, so it can gain and it can lose.","And an indexed account sits in between.","The strength is potential growth with protection from index losses, plus access to your cash value through loans and withdrawals, which may have tax advantages if structured properly.","There are trade-offs, too.","It costs more than term.","Growth isn't guaranteed and is limited by caps.","Policy charges still apply, and loans can cause the policy to lapse if they're mismanaged.","And illustrations are hypothetical, not promises.","To understand the indexed account, let's look at three ways cash value can be credited.","A fixed account earns a stated interest rate.","An indexed account links growth to an index, with limits on the upside and a floor on the downside.","A variable account has market exposure, with real potential for gains and losses. Because it's an investment product, discussing it requires a securities license. That's variable universal life, or VUL.","So what does indexing actually mean?","An indexed universal life policy is a universal life policy where the interest credited is based on how an index performs.","Your money is not invested directly in the market.","Three terms matter.","The cap is the maximum rate that can be credited, which is why the upside is limited.","The participation rate is the share of the index's gain that counts.","And the floor is the minimum credit, often 0%, so in a down year the credited interest is flat rather than negative."],
+    ["Here's the difference at a glance.","Term is the most affordable, but it's time-limited.","Whole life covers you for life, with a fixed premium. The trade-off is less flexibility, and the cash value builds gradually.","Universal life is flexible. You can adjust your premiums and your death benefit, and the cash value can help pay for the cost of coverage.","And indexed universal life is universal life with growth linked to an index. A 0% floor protects against index losses, but growth is capped.","Each one is designed for a different need. A licensed agent can help you find what fits your situation."]
+  ];
+  var s=[].slice.call(document.querySelectorAll('.slide')),d=document.getElementById('dots'),
+      pv=document.getElementById('prev'),nx=document.getElementById('next'),
+      snd=document.getElementById('snd'),au=document.getElementById('au'),rep=document.getElementById('rep'),
+      cap=document.getElementById('cap'),hint=document.getElementById('hint'),
+      i=0,c=s.map(function(){return 0}),narrate=true,st='idle',tok=0,tm=null,ta=null,
+      tts='speechSynthesis' in window&&'SpeechSynthesisUtterance' in window;
+  s.forEach(function(){d.appendChild(document.createElement('span'))});
+  if(!tts){narrate=false;snd.disabled=true;snd.title="Audio narration isn't supported in this browser"}
+  function items(k){return [].slice.call(s[k].querySelectorAll('[data-step]'))}
+  function max(k){return items(k).reduce(function(m,e){return Math.max(m,+e.dataset.step)},0)}
+  function pick(){
+    var v=speechSynthesis.getVoices().filter(function(x){return /^en[-_]US/i.test(x.lang)});
+    var pref=v.filter(function(x){return /Samantha|Google US|Natural|Jenny|Aria|Ava|Allison|Zira/i.test(x.name)});
+    return pref[0]||v[0]||null;
+  }
+  function say(t,done){
+    var parts=t.match(/[^.?!]+[.?!]*/g)||[t],v=pick();
+    parts.forEach(function(p,k){
+      var u=new SpeechSynthesisUtterance(p.trim());
+      u.lang='en-US';u.rate=.97;if(v)u.voice=v;
+      if(k===parts.length-1)u.onend=done;
+      speechSynthesis.speak(u);
+    });
+  }
+  function stopAll(){tok++;clearTimeout(tm);clearTimeout(ta);if(tts)speechSynthesis.cancel()}
+  function ui(){
+    var last=i===s.length-1;
+    snd.textContent='Narration: '+(narrate?'On':'Off');snd.setAttribute('aria-pressed',narrate);
+    au.textContent=st==='paused'?'Resume':'Pause';
+    au.disabled=!(st==='playing'||st==='paused');
+    pv.disabled=(i===0&&st==='idle');
+    nx.disabled=(st==='done'&&last);
+    hint.textContent=st==='idle'?'Click to begin':st==='playing'?'Click to skip ahead':st==='paused'?'Paused. Click to resume':last?'End of presentation':'Click for the next slide';
+  }
+  function draw(){
+    s.forEach(function(x,k){x.classList.toggle('on',k===i)});
+    items(i).forEach(function(e){var on=+e.dataset.step<=c[i]&&!(e.dataset.hide&&c[i]>=+e.dataset.hide);e.classList.toggle('in',on)});
+    [].slice.call(d.children).forEach(function(x,k){x.classList.toggle('on',k===i)});
+    ui();
+  }
+  function stepNext(my){
+    if(my!==tok)return;
+    if(c[i]<max(i)){c[i]++;draw();cue()}
+    else{st='done';ui()}
+  }
+  function cue(){
+    stopAll();
+    var my=tok,t=(NARR[i]&&NARR[i][c[i]])||'';
+    cap.textContent=t;
+    if(t&&narrate&&tts){
+      tm=setTimeout(function(){if(my===tok)say(t,function(){if(my===tok)ta=setTimeout(function(){stepNext(my)},600)})},80);
+    }else{
+      ta=setTimeout(function(){stepNext(my)},t?Math.max(1500,t.length*60):900);
+    }
+  }
+  function start(k){i=k;c[k]=0;st='playing';draw();cue()}
+  function go(){
+    if(st==='idle')start(0);
+    else if(st==='playing'){stopAll();c[i]=max(i);st='done';cap.textContent='';draw()}
+    else if(st==='paused'){st='playing';ui();cue()}
+    else if(i<s.length-1)start(i+1);
+  }
+  function back(){
+    stopAll();cap.textContent='';
+    if(i>0){i--;c[i]=max(i);st='done'}else{c[0]=0;st='idle'}
+    draw();
+  }
+  nx.onclick=function(e){e.stopPropagation();go()};
+  pv.onclick=function(e){e.stopPropagation();back()};
+  rep.onclick=function(){start(i)};
+  au.onclick=function(){
+    if(st==='playing'){st='paused';stopAll();ui()}
+    else if(st==='paused'){st='playing';ui();cue()}
+  };
+  snd.onclick=function(){narrate=!narrate;ui();if(st==='playing')cue()};
+  document.querySelector('.deck').onclick=go;
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();go()}
+    if(e.key==='ArrowLeft')back();
+  });
+  draw();
+})();
+</script>
+</body>
+</html>

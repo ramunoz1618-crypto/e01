@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ElevateOne — Build Your Future</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap">
+<style>
+:root{
+  --bg:#f5f6fa;--ink:#0f1330;--muted:#5d6480;--line:#e4e7f0;--card:#fff;--tint:#eef1ff;
+  --blue:#2f5bff;--indigo:#5b3df5;--cyan:#22c7e8;--shadow:0 8px 30px rgba(35,45,110,.08);
+  --grad:linear-gradient(135deg,var(--blue),var(--indigo));
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b0e21;--ink:#eef0ff;--muted:#a3a9c9;--line:#23294a;--card:#141939;--tint:#1c2350;--shadow:0 8px 30px rgba(0,0,0,.35)}}
+:root[data-theme="dark"]{--bg:#0b0e21;--ink:#eef0ff;--muted:#a3a9c9;--line:#23294a;--card:#141939;--tint:#1c2350;--shadow:0 8px 30px rgba(0,0,0,.35)}
+html,body{height:100%}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.5 "Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;display:flex;flex-direction:column}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--cyan);outline-offset:3px;border-radius:12px}
+.wrap{width:100%;max-width:1040px;margin:0 auto;padding:0 22px}
+nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
+.logo{font-weight:800;font-size:20px;display:flex;align-items:center;gap:10px}
+.logo i{width:30px;height:30px;border-radius:9px;background:var(--grad);display:block}
+.login{font-weight:600;font-size:15px;padding:9px 18px;border-radius:10px;border:1px solid var(--line);background:var(--card)}
+[hidden]{display:none!important}
+.back{display:inline-block;align-self:flex-start;font-weight:600;font-size:15px;color:var(--blue);margin-bottom:18px}
+.prod{grid-template-columns:repeat(3,1fr);max-width:1040px}
+.prod .choice{min-height:210px}
+.prod .choice:nth-child(4) .art{color:var(--indigo);transform:rotate(8deg)}
+.prod .choice:nth-child(5) .art{color:var(--cyan);opacity:.3}
+.prod h2{margin-bottom:18px}
+.edu{text-align:center;color:var(--muted);font-size:13.5px;margin:28px 0 0}
+@media(max-width:900px){.prod{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.prod{grid-template-columns:1fr}.prod .choice{min-height:150px}}
+.chlist{max-width:860px;margin:0 auto;width:100%}
+.ch{display:flex;align-items:center;justify-content:space-between;gap:18px;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:18px;padding:20px 22px;box-shadow:var(--shadow);margin-bottom:12px;font-weight:600;font-size:18px;line-height:1.35;letter-spacing:-.01em;transition:transform .15s,border-color .15s}
+.ch:hover{transform:translateX(4px);border-color:var(--indigo)}
+.ch .go{flex:none}
+@media(prefers-reduced-motion:reduce){.ch{transition:none}}
+#course{justify-content:flex-start}
+.cw{max-width:680px;margin:0 auto;width:100%}
+.cw h1{text-align:left;font-size:clamp(30px,5vw,42px)}
+.cw .sub{text-align:left;margin:0 0 12px}
+.cs{display:flex;gap:6px 18px;color:var(--muted);font-size:14.5px;margin:8px 0 14px;flex-wrap:wrap}
+.pb{height:10px;border-radius:9px;background:var(--line);overflow:hidden}
+.pb b{display:block;height:100%;background:linear-gradient(135deg,var(--blue),var(--indigo));border-radius:9px;transition:width .3s}
+.pbtn{display:block;width:100%;text-align:center;font-weight:600;font-size:17px;font-family:inherit;padding:16px;border:0;border-radius:14px;background:linear-gradient(135deg,var(--blue),var(--indigo));color:#fff;cursor:pointer;box-shadow:0 6px 18px rgba(63,70,240,.3)}
+.pbtn:disabled{opacity:.45;cursor:default;box-shadow:none}
+.lc{display:flex;align-items:center;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px 18px;margin-top:12px}
+.lc .bd,.bd{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-weight:800;background:var(--tint);color:var(--blue)}
+.lc.dn .bd{background:rgba(34,199,140,.18);color:#12a174}
+.lc.up{border:2px solid var(--blue);box-shadow:var(--shadow)}
+.lc.up .bd{background:var(--blue);color:#fff}
+.lc.lk{opacity:.55}
+.lc b{display:block;font-size:17px}
+.lc small{color:var(--muted)}
+.top{display:flex;align-items:center;gap:12px;margin-bottom:16px;font-size:14px;color:var(--muted)}
+.top a{font-size:22px;color:var(--ink)}
+.seg{display:flex;gap:4px;padding:4px;border-radius:99px;background:var(--card);border:1px solid var(--line);width:max-content;margin:0 auto 22px}
+.seg button{border:0;background:none;padding:10px 20px;border-radius:99px;font-weight:600;font-size:15px;font-family:inherit;color:var(--muted);cursor:pointer}
+.seg .on{background:var(--blue);color:#fff}
+.sec h2{font-size:26px;letter-spacing:-.02em;margin:0 0 12px}
+.sec p{font-size:18px;line-height:1.65;margin:0 0 14px}
+.br{margin:12px 0}
+.br span{display:flex;justify-content:space-between;gap:12px;font-size:15px}
+.br i{display:block;height:10px;border-radius:9px;background:linear-gradient(90deg,var(--blue),var(--indigo));margin-top:5px}
+.opt{display:block;width:100%;text-align:left;padding:16px;border-radius:16px;border:1.5px solid var(--line);background:var(--card);font-size:17px;font-family:inherit;color:var(--ink);margin-top:10px;cursor:pointer}
+.opt.sel{border-color:var(--blue);background:var(--tint)}
+.opt.ok{border-color:#12a174;background:rgba(34,199,140,.15)}
+.opt.no{border-color:#d64545;background:rgba(214,69,69,.1)}
+.fb{border-radius:16px;padding:14px 16px;margin-top:14px;font-size:16px}
+.fb.ok{background:rgba(34,199,140,.15)}
+.fb.no{background:rgba(255,178,36,.18)}
+.dock{position:sticky;bottom:0;background:var(--bg);padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));margin-top:18px}
+.au{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:12px;margin-bottom:12px}
+.au .r{display:flex;justify-content:space-between;align-items:center;gap:6px;font-size:13px;color:var(--muted)}
+.au .r+.r{margin-top:8px}
+.au input{flex:1;min-width:0;accent-color:var(--blue)}
+.au button{min-width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-weight:600;font-size:14px;font-family:inherit;cursor:pointer;padding:0 10px}
+.au .pp{background:var(--blue);color:#fff;border:0;width:56px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}
+.stats div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 8px}
+.stats b{display:block;font-size:26px}
+.stats small{color:var(--muted)}
+.acct{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.lang{display:inline-flex;align-items:center;gap:7px;font-weight:600;font-size:14px;color:var(--blue);padding:6px 14px;border-radius:99px;background:var(--tint)}
+.langrow{margin-bottom:14px}
+.lang:hover{background:var(--blue);color:#fff}
+main{flex:1;display:flex;flex-direction:column;justify-content:center;padding:24px 0 40px}
+h1{font-size:clamp(40px,7vw,68px);line-height:1.05;letter-spacing:-.03em;font-weight:800;margin:0 0 12px;text-align:center}
+.sub{text-align:center;color:var(--muted);margin:0 0 40px;font-size:18px}
+.choices{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:860px;margin:0 auto;width:100%}
+@media(max-width:800px){.choices{grid-template-columns:1fr;gap:14px}}
+.choice{position:relative;overflow:hidden;min-height:300px;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:26px;padding:30px;box-shadow:var(--shadow);transition:transform .15s,border-color .15s}
+.choice:hover{transform:translateY(-4px);border-color:var(--blue)}
+.art{position:absolute;right:-64px;bottom:-56px;width:290px;height:290px;color:var(--blue);opacity:.2;transform:rotate(-8deg);pointer-events:none;transition:transform .3s,opacity .3s}
+.choice:nth-child(2) .art{color:var(--indigo);transform:rotate(8deg)}
+.choice:nth-child(3) .art{color:var(--cyan);opacity:.3;transform:rotate(-4deg)}
+.choice:hover .art{opacity:.3;transform:rotate(0) scale(1.04)}
+.choice h2,.choice p,.go{position:relative}
+.choice h2{font-size:24px;letter-spacing:-.02em;margin:auto 0 6px;font-weight:800}
+.choice p{max-width:62%;margin:0 0 22px;color:var(--muted);font-size:16px}
+.go{margin-top:0;width:42px;height:42px;border-radius:50%;background:var(--grad);color:#fff;display:grid;place-items:center}
+footer{padding:20px 0 28px;text-align:center;font-size:13.5px;color:var(--muted)}
+footer a{margin:0 10px}
+footer a:hover{color:var(--ink)}
+@media(max-width:800px){.choice{min-height:210px}.art{width:230px;height:230px;right:-50px;bottom:-50px}.choice p{max-width:60%}}
+@media(prefers-reduced-motion:reduce){.choice,.art{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a class="logo" href="#"><i></i>ElevateOne</a>
+    <div class="acct"><a class="login" href="#login" data-i="login">Log in</a></div>
+  </nav>
+</div>
+
+<main class="wrap" id="home">
+  <h1 data-i="h1">Build Your Future.</h1>
+  <p class="sub" data-i="sub">What are you interested in?</p>
+  <div class="choices">
+    <a class="choice" href="#products">
+      <svg class="art" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"><path d="M11 12h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 14"/><path d="m7 18 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9"/><path d="m2 13 6 6"/></svg>
+      <h2 data-i="t1">A Helping Hand</h2>
+      <p data-i="d1">Learn about our products.</p>
+      <span class="go"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a class="choice" href="#careers">
+      <svg class="art" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="3"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2M2 13h20"/></svg>
+      <h2 data-i="t2">Career Opportunities</h2>
+      <p data-i="d2">Learn about the career and becoming an agent.</p>
+      <span class="go"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+  </div>
+</main>
+
+<main class="wrap" id="products" hidden>
+  <a class="back" href="#home" data-i="back">&larr; Back</a>
+  <h1 data-i="ph1">Secure Your Future.</h1>
+  <p class="sub" data-i="psub">Financial insurance and retirement products.</p>
+  <div class="choices prod">
+    <a class="choice" href="/life-insurance"><svg class="art" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><h2 data-i="p1">Life Insurance</h2><span class="go"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    <a class="choice" href="#learn-p2"><svg class="art" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><h2 data-i="p2">Term</h2><span class="go"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    <a class="choice" href="#learn-p3"><svg class="art" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4zm0 0c2 2.67 4 4 6 4a4 4 0 0 0 0-8c-2 0-4 1.33-6 4z"/></svg><h2 data-i="p3">Whole</h2><span class="go"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    <a class="choice" href="#learn-p4"><svg class="art" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></svg><h2 data-i="p4">UL and IUL</h2><span class="go"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    <a class="choice" href="#learn-p5"><svg class="art" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg><h2 data-i="p5">Annuities</h2><span class="go"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+  </div>
+  <p class="edu" data-i="edu">For educational purposes only. Not financial, legal, or tax advice.</p>
+</main>
+
+<main class="wrap" id="careers" hidden>
+  <a class="back" href="#home" data-i="back">&larr; Back</a>
+  <h1 data-i="ch1">Career Opportunities.</h1>
+  <p class="sub" data-i="csub">What would you like to do?</p>
+  <div class="choices">
+    <a class="choice" href="#license"><svg class="art" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="11" r="2.5"/><path d="M5.5 17c.6-2 2-3 3.5-3s2.9 1 3.5 3M15 9h3M15 13h3"/></svg><h2 data-i="c1">Get Licensed</h2><span class="go"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    <a class="choice" href="#career-c2"><svg class="art" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg><h2 data-i="c2">Create a Team</h2><span class="go"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+  </div>
+</main>
+<main class="wrap" id="license" hidden>
+  <a class="back" href="#careers" data-i="back">&larr; Back</a>
+  <h1 data-i="lh1">Get Licensed.</h1>
+  <p class="sub" data-i="lsub">Choose a chapter to begin.</p>
+  <div class="chlist">
+    <a class="ch" href="#course"><span data-i="li0">Introduction</span><span class="go"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    <a class="ch" href="#license-1"><span data-i="li1">Chapter 1. Completing the Application, Underwriting, and Delivering the Policy</span><span class="go"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    <a class="ch" href="#license-2"><span data-i="li2">Chapter 2. Types of Life Policies</span><span class="go"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    <a class="ch" href="#license-3"><span data-i="li3">Chapter 3. Policy Riders, Provisions, Options and Exclusions</span><span class="go"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    <a class="ch" href="#license-4"><span data-i="li4">Chapter 4. Retirement and Other Insurance Concepts</span><span class="go"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    <a class="ch" href="#license-5"><span data-i="li5">Chapter 5. Texas Statutes and Rules Common to Life and Health Insurance</span><span class="go"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    <a class="ch" href="#license-6"><span data-i="li6">Chapter 6. Texas Statutes and Rules Pertinent to Life Insurance Only</span><span class="go"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+  </div>
+</main>
+<main class="wrap" id="course" hidden><div id="cr"></div></main>
+<footer>
+  <div class="langrow"><a class="lang" id="langbtn" href="#es" lang="es-MX" hreflang="es-MX"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.7 3.9 5.7 3.9 9s-1.3 6.3-3.9 9c-2.6-2.7-3.9-5.7-3.9-9S9.4 5.7 12 3z"/></svg><span id="langlabel">Español</span></a></div>
+  <a href="#about" data-i="f1">About</a><a href="#contact" data-i="f2">Contact</a><a href="#privacy" data-i="f3">Privacy</a><a href="#disclosures" data-i="f4">Disclosures</a>
+</footer>
+<script>
+var T={en:{login:"Log in",h1:"Build Your Future.",sub:"What are you interested in?",t1:"A Helping Hand",d1:"Learn about our products.",t2:"Career Opportunities",d2:"Learn about the career and becoming an agent.",f1:"About",f2:"Contact",f3:"Privacy",f4:"Disclosures",title:"ElevateOne \u2014 Build Your Future",btn:"Espa\u00f1ol",back:"\u2190 Back",ph1:"Secure Your Future.",psub:"Financial insurance and retirement products.",p1:"Life Insurance",p2:"Term",p3:"Whole",p4:"UL and IUL",p5:"Annuities",edu:"For educational purposes only. Not financial, legal, or tax advice.",ch1:"Career Opportunities.",csub:"What would you like to do?",c1:"Get Licensed",c2:"Create a Team",lh1:"Get Licensed.",lsub:"Choose a chapter to begin.",li0:"Introduction",li1:"Chapter 1. Completing the Application, Underwriting, and Delivering the Policy",li2:"Chapter 2. Types of Life Policies",li3:"Chapter 3. Policy Riders, Provisions, Options and Exclusions",li4:"Chapter 4. Retirement and Other Insurance Concepts",li5:"Chapter 5. Texas Statutes and Rules Common to Life and Health Insurance",li6:"Chapter 6. Texas Statutes and Rules Pertinent to Life Insurance Only"},
+es:{login:"Iniciar sesi\u00f3n",h1:"Construye tu futuro.",sub:"\u00bfQu\u00e9 te interesa?",t1:"Una mano",d1:"Conoce nuestros productos.",t2:"Oportunidades profesionales",d2:"Conoce la carrera y c\u00f3mo convertirte en agente.",f1:"Nosotros",f2:"Contacto",f3:"Aviso de privacidad",f4:"Avisos legales",title:"ElevateOne \u2014 Construye tu futuro",btn:"English",back:"\u2190 Regresar",ph1:"Asegura tu futuro.",psub:"Seguros financieros y productos para el retiro.",p1:"Seguro de vida",p2:"Temporal",p3:"Vida entera",p4:"UL e IUL",p5:"Anualidades",edu:"Solo con fines educativos. No constituye asesor\u00eda financiera, legal ni fiscal.",ch1:"Oportunidades profesionales.",csub:"\u00bfQu\u00e9 te gustar\u00eda hacer?",c1:"Obt\u00e9n tu licencia",c2:"Crea un equipo",lh1:"Obt\u00e9n tu licencia.",lsub:"Elige un cap\u00edtulo para comenzar.",li0:"Introducci\u00f3n",li1:"Cap\u00edtulo 1. C\u00f3mo completar la solicitud, la suscripci\u00f3n (underwriting) y la entrega de la p\u00f3liza",li2:"Cap\u00edtulo 2. Tipos de p\u00f3lizas de seguro de vida",li3:"Cap\u00edtulo 3. Cl\u00e1usulas adicionales (riders), disposiciones, opciones y exclusiones de la p\u00f3liza",li4:"Cap\u00edtulo 4. Conceptos de retiro y otros seguros",li5:"Cap\u00edtulo 5. Leyes y reglamentos de Texas comunes a los seguros de vida y de salud",li6:"Cap\u00edtulo 6. Leyes y reglamentos de Texas aplicables solo a los seguros de vida"}};
+var btn=document.getElementById("langbtn");
+function setLang(l){
+  var d=T[l];
+  document.querySelectorAll("[data-i]").forEach(function(e){e.textContent=d[e.getAttribute("data-i")]});
+  document.getElementById("langlabel").textContent=d.btn;
+  document.documentElement.lang=l==="es"?"es-MX":"en";document.title=d.title;
+  btn.setAttribute("lang",l==="es"?"en":"es-MX");btn.setAttribute("hreflang",l==="es"?"en":"es-MX");
+  btn.setAttribute("href",l==="es"?"#en":"#es");
+  try{localStorage.setItem("lang",l)}catch(e){}
+}
+btn.addEventListener("click",function(e){e.preventDefault();setLang(document.documentElement.lang==="en"?"es":"en")});
+var start="en";
+try{start=localStorage.getItem("lang")||"en"}catch(e){}
+if(location.hash==="#es")start="es";else if(location.hash==="#en")start="en";
+if(start==="es")setLang("es");
+function route(){var h=location.hash,v=h==="#products"?"products":h==="#careers"?"careers":h==="#license"?"license":/^#(course|lesson|complete)/.test(h)?"course":"home";["home","products","careers","license","course"].forEach(function(i){document.getElementById(i).hidden=i!==v});if(window.courseRoute)courseRoute(v==="course"?h:"");if(v!=="home"||h==="#home")window.scrollTo(0,0)}
+window.addEventListener("hashchange",route);route();
+</script>
+<script>
+(function(){
+var C={title:"Introduction",desc:"Learn how this course works, how the Texas life exam is structured, and how to prepare. Short lessons with quick knowledge checks.",mins:20,next:"Chapter 1. Completing the Application, Underwriting, and Delivering the Policy",lessons:[
+{id:"l1",t:"How to Use This Course",m:3,s:[
+{h:"Study in order",p:["Study the course in the order presented. This builds the **foundation of concepts** step by step.","Each chapter is based on the **exam content outlines from your state**. They list the topics you may be tested on.","The materials cover only what you need: **nothing more, nothing less**."]},
+{h:"Your study tools",p:["The **Exam Breakdown** in this Introduction shows how many questions each chapter gets on the practice tests and the state exam. Use it to manage your study time.","A list of **Terms to Know** opens each chapter. Words you know from everyday life can have a unique meaning in insurance."]},
+{q:"Which feature at the start of each chapter helps you understand insurance-related concepts?",o:["Chapter Recap","Terms to Know","Key Facts","Know This! markers"],a:1,w:"Terms to Know opens each chapter. Familiar words can mean something different in insurance."},
+{h:"Know This! and recaps",p:["**Know This!** markers point out **testable points** and help you remember key concepts.","The **Chapter Recap** at the end of each chapter is a quick review of the key terms and concepts your state exam outline requires.","At the end of the course, review the **Key Facts** for a comprehensive review of testable points."]},
+{q:"What do Know This! markers identify?",o:["Optional reading","Testable points","Chapter quiz dates","Exam locations"],a:1,w:"They flag testable points so you can remember the key concepts."}]},
+{id:"l2",t:"Study Tips",m:3,s:[
+{h:"Study actively",p:["Follow the recommended study steps to finish efficiently.","**Take notes while studying.** It helps you engage and retain more.","Study the **Key Facts** at the end of the course, and keep reviewing them between practice exams until exam day."]},
+{h:"Take breaks",p:["Having trouble remembering what you studied? **Take a day off.**","When you return, take a practice exam and see how you do. Review the areas you struggled with, and keep taking notes."]},
+{q:"You've studied for a while but can't remember the material. What does the course suggest?",o:["Keep studying without stopping","Take a day off, then try a practice exam","Skip ahead to the state exam","Stop taking notes"],a:1,w:"A day off helps. Then take a practice exam and review the areas you had trouble with."},
+{h:"Know when you're ready",p:["Keep reviewing and taking practice tests **until the day of your exam**.","If you can't pass practice exams consistently with scores **close to 80%**, consider **postponing** the exam and studying more.","It's better to delay than to take the exam unprepared."]},
+{q:"What practice exam score should you consistently be close to?",o:["60%","70%","80%","100%"],a:2,w:"Aim for scores close to 80%. If you're not there, consider postponing."}]},
+{id:"l3",t:"Test-Taking Tips",m:4,s:[
+{h:"Before exam day",p:["Schedule your exam for the time of day when you're **most alert**.","**Don't cram** right before the exam. Get a good night's sleep.","Leave with plenty of time. Unexpected events happen, and you don't want to be late."]},
+{h:"Know what to expect",p:["Watch the **exam tutorial** at the start to learn the screen navigation and format.","Exams may be divided into parts. Once you finish a section, you may **not be able to go back**, even to review.","All questions are **multiple choice**: direct questions, incomplete sentences, or “all of the following EXCEPT.”"]},
+{q:"Which statement about the exam is true?",o:["All questions are multiple choice","Some questions are essays","You can always go back to earlier sections","The exam is spoken aloud"],a:0,w:"All questions are multiple choice. You may not be able to return to a finished section."},
+{h:"Read carefully",p:["Read each question **in its entirety** and pay attention to the details.","Watch for key words that change the meaning: **NOT, ALL, EXCEPT, EVERY, ALWAYS, NEVER**.","Don't let unfamiliar terms throw you. Most of the time they are only **distractors**."]},
+{h:"Answer smart",p:["**Eliminate** the answers you know are wrong. Each one you remove improves your odds.","Not sure? Pick the best answer, **mark it for review**, and come back later.","Don't change an answer unless you're **absolutely sure**. Don't leave any unanswered, and keep a positive attitude."]},
+{q:"You don't know the answer to a question. What should you do?",o:["Leave it blank","Pick the best answer and mark it for review","Skip the rest of the exam","Change it three times"],a:1,w:"Pick the best answer, mark it for review, and return to it later. Never leave one blank."}]},
+{id:"l4",t:"Exam Day: What to Expect",m:4,s:[
+{h:"Prepare ahead",p:["Read your state's **Candidate Handbook** or **License Information Bulletin**. It explains how to schedule or reschedule, what ID you need, how early to arrive, and what you can't bring.","Find it on the testing provider's website or through the insurance department.","You may need your **certificate of completion** and several forms of identification."]},
+{h:"What the exam covers",p:["The exam may include questions on **any topic** in your study material.","It tests your basic knowledge of **general insurance and state laws**.","Questions are fair and straightforward. They're **not trying to trick you**."]},
+{q:"How are the exam questions designed?",o:["To trick you","To be fair and straightforward","Only to test memory of numbers","To be as long as possible"],a:1,w:"Exam questions are fair and straightforward. Read carefully without reading too much into them."},
+{h:"At the testing center",p:["**Arrive at least 30 minutes early.**","Leave your belongings in the car. No study materials, cell phones, purses, or watches. Most centers provide **lockers**.","No food, drinks, or gum. Check in at the front desk."]},
+{q:"How early should you arrive at the testing center?",o:["5 minutes","15 minutes","At least 30 minutes","2 hours"],a:2,w:"Arrive at least 30 minutes before your scheduled exam time."},
+{h:"During the test",p:["Get comfortable, and adjust the seat and monitor. Take the **tutorial** to learn how to mark and review answers.","Tune out other test takers coming and going.","You'll usually get scratch paper and a pencil or a dry-erase tablet. **Note challenging questions** to double-check later.","In your review, focus on **marked questions** and re-read the others for a familiar concept or a term that changes the question."]}]},
+{id:"l5",t:"Texas Exam Breakdown",m:3,s:[
+{h:"The exam at a glance",p:["The Texas Life Insurance Agent Examination has **90 questions**.","**80 are scored** and **10 are pretest**.","You have **2 hours**."]},
+{q:"How many of the 90 questions are scored?",o:["90","80","10","60"],a:1,w:"80 questions are scored. The other 10 are pretest questions."},
+{h:"Where the questions come from",p:["The exam covers **General Knowledge** and **State Law**. You receive **one overall score**.","Here is the share of the exam for each chapter:"],b:[["Completing the Application, Underwriting, and Delivering the Policy",15],["Types of Life Policies",19],["Life Policy Provisions, Riders and Options",19],["Retirement and Other Insurance Concepts",10],["Texas Statutes and Rules Common to All Lines",25],["Texas Statutes and Rules Pertinent to Life Insurance Only",12]]},
+{h:"Use the breakdown",p:["Manage your study time using these percentages.","**Texas Statutes and Rules Common to All Lines** is the largest share at **25%**. Types of Life Policies and Policy Provisions, Riders and Options are **19%** each."]},
+{q:"Which area has the largest share of the exam?",o:["Types of Life Policies","Texas Statutes and Rules Common to All Lines","Retirement and Other Insurance Concepts","Texas Statutes and Rules Pertinent to Life Insurance Only"],a:1,w:"State law common to all lines is 25% of the exam, the largest share."}]},
+{id:"l6",t:"Your Study Plan",m:3,s:[
+{h:"Chapters",p:["Study the chapters **in order**. Read for **comprehension, not speed**: at least **1 to 2 hours per chapter**.","Take notes and watch for **Know This!** markers. Watch chapter videos and practice with flash cards if available.","Review the Chapter Recaps and study the Key Facts."]},
+{h:"Chapter quizzes",p:["Pass each chapter quiz **2 to 3 consecutive times**.","Review the questions you missed, and review the course material between attempts."]},
+{q:"How many consecutive times should you pass each chapter quiz?",o:["Once","2 to 3 times","5 times","10 times"],a:1,w:"Pass each chapter quiz 2 to 3 consecutive times."},
+{h:"Practice exam",p:["Pass the practice exam **2 to 3 times** with a score **close to 80%**.","Review missed questions and your score report. Between attempts, review the course material and complete a Focused Exam if available."]},
+{h:"Readiness exam",p:["You must **pass a Practice Exam** to unlock the **Readiness Exam**.","Take it as a final check that you're ready for your state exam.","Take your second Readiness Exam **2 to 3 days before** the state exam. Keep reviewing until exam day!"]},
+{q:"What unlocks the Readiness Exam?",o:["Finishing the Introduction","Passing a Practice Exam","Scheduling your state exam","Passing one chapter quiz"],a:1,w:"You must pass a Practice Exam to unlock the Readiness Exam."}]}]};
+var R=document.getElementById("cr"),S={mode:"read",rate:1,p:{}},L={id:"",i:0},K={s:null,r:null,n:0},A={f:0,on:false,t:"",u:null,tm:0},RT=[.75,1,1.25,1.5,2],TS=!!window.speechSynthesis;
+try{var q=JSON.parse(localStorage.getItem("eo-course"));if(q&&q.p)S=q}catch(e){}
+function sv(){try{localStorage.setItem("eo-course",JSON.stringify(S))}catch(e){}}
+function P(){return S.p.intro||(S.p.intro={d:{},at:{},ck:{}})}
+function LS(id){return C.lessons.filter(function(l){return l.id===id})[0]}
+function fm(t){return t.replace(/\*\*(.+?)\*\*/g,"<b>$1</b>")}
+function pl(t){return t.replace(/\*\*/g,"")}
+function mm(s){s=Math.round(s);return Math.floor(s/60)+":"+("0"+s%60).slice(-2)}
+function cur(){var p=P(),c=-1;C.lessons.forEach(function(l,i){if(c<0&&!p.d[l.id])c=i});return c}
+function tx(s){if(s.q)return "Check your knowledge. "+s.q+" "+s.o.map(function(o,i){return String.fromCharCode(65+i)+". "+o}).join(". ");var t=s.h+". "+s.p.map(pl).join(" ");if(s.b)t+=" "+s.b.map(function(b){return b[0]+", "+b[1]+" percent."}).join(" ");return t}
+function dur(){return Math.max(3,A.t.split(/\s+/).length/2.5/S.rate)}
+function ui(){var sc=document.getElementById("sc");if(!sc)return;var d=dur();sc.value=Math.round(A.f*1000);document.getElementById("t1").textContent=mm(A.f*d);document.getElementById("t2").textContent=mm(d);document.getElementById("pp").textContent=A.on?"❚❚":"▶"}
+function voice(){var v=speechSynthesis.getVoices().filter(function(x){return /^en/i.test(x.lang)});return v.filter(function(x){return /natural|google us|samantha|enhanced|premium|aria|jenny/i.test(x.name)})[0]||v.filter(function(x){return /en-US/i.test(x.lang)})[0]||null}
+function say(from){if(!TS)return;speechSynthesis.cancel();clearInterval(A.tm);var t=A.t,u=new SpeechSynthesisUtterance(t.slice(from));u.rate=S.rate;u.lang="en-US";var v=voice();if(v)u.voice=v;u.onboundary=function(e){if(A.u===u)A.f=(from+e.charIndex)/t.length};u.onend=function(){if(A.u===u){A.on=false;A.f=1;clearInterval(A.tm);ui()}};A.u=u;A.on=true;speechSynthesis.speak(u);A.tm=setInterval(function(){A.f=Math.min(1,A.f+.25/dur());ui()},250);ui()}
+function pause(){var f=A.f;if(TS)speechSynthesis.cancel();A.u=null;clearInterval(A.tm);A.on=false;A.f=f;ui()}
+function stop(){pause();A.f=0}
+function seek(f){A.f=Math.max(0,Math.min(1,f));if(A.on)say(Math.floor(A.f*A.t.length));else ui()}
+function ov(){var p=P(),n=C.lessons.length,d=C.lessons.filter(function(l){return p.d[l.id]}).length,c=cur(),pc=Math.round(d/n*100);
+var h='<div class="cw"><a class="back" href="#license">&larr; Back</a><h1>'+C.title+'</h1><p class="sub">'+C.desc+'</p><div class="cs"><span><b>'+pc+'%</b> complete</span><span>'+d+' of '+n+' lessons completed</span><span>About '+C.mins+' minutes</span></div><div class="pb"><b style="width:'+pc+'%"></b></div>';
+if(c<0)h+='<a class="pbtn" href="#complete" style="margin-top:18px">View completion</a>';
+else if(p.at[C.lessons[c].id]>0)h+='<a class="pbtn" href="#lesson/'+C.lessons[c].id+'" style="margin-top:18px">Continue where you left off</a>';
+C.lessons.forEach(function(l,i){var st=p.d[l.id]?"dn":i===c?"up":c>=0&&i>c?"lk":"",lab=st==="dn"?"Completed":st==="up"?"Up next":st==="lk"?"Locked":"Available",ic=st==="dn"?"✓":st==="lk"?"🔒":i+1,inn='<span class="bd">'+ic+'</span><span><b>'+l.t+'</b><small>'+lab+' · '+l.m+' min</small></span>';
+h+=st==="lk"?'<div class="lc lk" aria-disabled="true">'+inn+'</div>':'<a class="lc '+st+'" href="#lesson/'+l.id+'">'+inn+'<span style="margin-left:auto">›</span></a>'});
+R.innerHTML=h+'</div>';window.scrollTo(0,0)}
+function pr(top){var l=LS(L.id),s=l.s,x=s[L.i],N=s.length,last=L.i===N-1;
+var h='<div class="cw"><div class="top"><a href="#course" aria-label="Back to lessons">&larr;</a><div class="pb" style="flex:1"><b style="width:'+((L.i+1)/N*100)+'%"></b></div><span>'+(L.i+1)+' / '+N+'</span></div><div class="seg" role="group" aria-label="Lesson mode"><button type="button" class="'+(S.mode==="read"?"on":"")+'" data-a="m" data-v="read">Reading</button><button type="button" class="'+(S.mode==="audio"?"on":"")+'" data-a="m" data-v="audio">Audio</button></div><div class="sec">';
+if(x.q){h+='<h2>Check Your Knowledge</h2><p><b>'+x.q+'</b></p>';
+x.o.forEach(function(o,i){var c="opt";if(K.r){if((K.r==="ok"||K.r==="sh")&&i===x.a)c+=" ok";else if(i===K.s&&K.r!=="ok")c+=" no"}else if(i===K.s)c+=" sel";h+='<button type="button" class="'+c+'" data-a="o" data-v="'+i+'"'+(K.r==="ok"||K.r==="sh"?" disabled":"")+'>'+o+'</button>'});
+if(K.r==="ok")h+='<div class="fb ok"><b>Correct!</b> '+x.w+'</div>';else if(K.r==="no")h+='<div class="fb no"><b>Not quite, but you\'re close.</b> Give it another try.</div>';else if(K.r==="sh")h+='<div class="fb ok"><b>The answer is: '+x.o[x.a]+'.</b> '+x.w+'</div>'}
+else{h+='<h2>'+x.h+'</h2>'+x.p.map(function(t){return '<p>'+fm(t)+'</p>'}).join('');if(x.b)h+=x.b.map(function(b){return '<div class="br"><span><span>'+b[0]+'</span><b>'+b[1]+'%</b></span><i style="width:'+b[1]*4+'%"></i></div>'}).join('')}
+h+='</div><div class="dock">';
+if(S.mode==="audio")h+=TS?'<div class="au"><div class="r"><span id="t1">0:00</span><input id="sc" type="range" min="0" max="1000" value="0" aria-label="Audio position"><span id="t2">0:00</span></div><div class="r"><button type="button" data-a="pv" aria-label="Previous section">‹ Prev</button><button type="button" data-a="sk" data-v="-1" aria-label="Back 10 seconds">−10s</button><button type="button" class="pp" id="pp" data-a="pp" aria-label="Play or pause">▶</button><button type="button" data-a="sk" data-v="1" aria-label="Forward 10 seconds">+10s</button><button type="button" data-a="nx" aria-label="Next section">Next ›</button><button type="button" data-a="sp" aria-label="Playback speed">'+S.rate+'×</button></div></div>':'<p class="sub">Audio isn\'t available in this browser.</p>';
+var lab=last?"Finish lesson":"Continue",ac="go";if(x.q){if(!K.r){lab="Check Answer";ac="ck"}else if(K.r==="no"){lab="Try Again";ac="ta"}}
+h+='<button type="button" class="pbtn" data-a="'+ac+'"'+(ac==="ck"&&K.s==null?" disabled":"")+'>'+lab+'</button></div></div>';
+R.innerHTML=h;if(top)window.scrollTo(0,0);A.t=tx(x);ui()}
+function mv(i,play){stop();L.i=i;K={s:null,r:null,n:0};P().at[L.id]=i;sv();pr(true);if(play&&S.mode==="audio")say(0)}
+function fin(){var p=P();p.d[L.id]=1;p.at[L.id]=0;if(cur()<0&&!p.done)p.done=new Date().toISOString();sv();stop();location.hash=cur()<0?"#complete":"#course"}
+function cm(){var p=P(),n=C.lessons.length,tk=0;C.lessons.forEach(function(l){l.s.forEach(function(s){if(s.q)tk++})});
+if(cur()>=0){location.hash="#course";return}
+var dt=new Date(p.done||Date.now()).toLocaleDateString(undefined,{year:"numeric",month:"long",day:"numeric"});
+R.innerHTML='<div class="cw" style="text-align:center"><div class="bd" style="margin:10px auto;width:64px;height:64px;font-size:30px">✓</div><h1 style="text-align:center">Course completed</h1><p class="sub" style="text-align:center">'+C.title+'</p><div class="stats"><div><b>'+n+'</b><small>lessons completed</small></div><div><b>'+Object.keys(p.ck).length+'/'+tk+'</b><small>knowledge checks</small></div><div><b style="font-size:16px;line-height:2">'+dt+'</b><small>completed</small></div></div><div class="lc up" style="text-align:left"><span><small>Recommended next</small><b>'+C.next+'</b><small>Coming soon</small></span></div><a class="pbtn" href="#license" style="margin-top:18px">Back to chapters</a></div>';window.scrollTo(0,0)}
+R.addEventListener("click",function(e){var b=e.target.closest("[data-a]");if(!b)return;var a=b.dataset.a,v=b.dataset.v,x=LS(L.id).s[L.i],N=LS(L.id).s.length;
+if(a==="m"){S.mode=v;stop();sv();pr()}
+else if(a==="o"){K.s=+v;K.r=null;pr()}
+else if(a==="ck"){if(K.s===x.a){K.r="ok";P().ck[L.id+L.i]=1;sv()}else{K.n++;K.r=K.n>=2?"sh":"no"}pr()}
+else if(a==="ta"){K.s=null;K.r=null;pr()}
+else if(a==="go"){if(L.i<N-1)mv(L.i+1,A.on);else fin()}
+else if(a==="pv"){if(L.i>0)mv(L.i-1,A.on)}
+else if(a==="nx"){if(L.i<N-1)mv(L.i+1,A.on)}
+else if(a==="pp"){if(A.on)pause();else{if(A.f>=.99)A.f=0;say(Math.floor(A.f*A.t.length))}}
+else if(a==="sk")seek(A.f+(+v)*10/dur());
+else if(a==="sp"){S.rate=RT[(RT.indexOf(S.rate)+1)%RT.length];sv();b.textContent=S.rate+"×";if(A.on)say(Math.floor(A.f*A.t.length));else ui()}});
+R.addEventListener("change",function(e){if(e.target.id==="sc")seek(e.target.value/1000)});
+window.courseRoute=function(h){if(!h){stop();return}var m=h.match(/^#lesson\/(\w+)/);
+if(m){var l=LS(m[1]),i=l?C.lessons.indexOf(l):-1,c=cur();if(!l||(c>=0&&i>c)){location.hash="#course";return}
+if(L.id!==m[1]){L.id=m[1];L.i=Math.min(P().at[m[1]]||0,l.s.length-1);K={s:null,r:null,n:0}}stop();pr(true)}
+else if(h==="#complete")cm();else ov()};
+route();
+})();
+</script>
+</body>
+</html>
