@@ -295,7 +295,7 @@ else{h+='<h2>'+x.h+'</h2>'+x.p.map(function(t){var li=/^- /.test(t);return '<p'+
 h+='</div><div class="dock">';
 if(S.mode==="audio")h+=TS?'<div class="au"><div class="r"><span id="t1">0:00</span><input id="sc" type="range" min="0" max="1000" value="0" aria-label="Audio position"><span id="t2">0:00</span></div><div class="r"><button type="button" data-a="pv" aria-label="Previous section">‹ Prev</button><button type="button" data-a="sk" data-v="-1" aria-label="Back 10 seconds">−10s</button><button type="button" class="pp" id="pp" data-a="pp" aria-label="Play or pause">▶</button><button type="button" data-a="sk" data-v="1" aria-label="Forward 10 seconds">+10s</button><button type="button" data-a="nx" aria-label="Next section">Next ›</button><button type="button" data-a="sp" aria-label="Playback speed">'+S.rate+'×</button></div></div>':'<p class="sub">Audio isn\'t available in this browser.</p>';
 var lab=last?"Finish lesson":"Continue",ac="go";if(x.q){if(!K.r){lab="Check Answer";ac="ck"}else if(K.r==="no"){lab="Try Again";ac="ta"}}
-h+='<button type="button" class="pbtn" data-a="'+ac+'"'+(ac==="ck"&&K.s==null?" disabled":"")+'>'+lab+'</button><a class="lnk" href="#license">Exit chapter</a></div></div>';
+h+='<button type="button" class="pbtn" data-a="'+ac+'"'+(ac==="ck"&&K.s==null?" disabled":"")+'>'+lab+'</button><a class="lnk" href="#course/'+c.id+'">Exit section</a></div></div>';
 R.innerHTML=h;if(top)window.scrollTo(0,0);A.t=tx(x);ui()}
 function mv(i,play){stop();L.i=i;K={s:null,r:null,n:0};P().at[L.id]=i;sv();pr(true);if(play&&S.mode==="audio")say(0)}
 function fin(){var p=P();p.d[L.id]=1;p.at[L.id]=0;if(cur()<0&&!p.done)p.done=new Date().toISOString();sv();stop();location.hash=cur()<0?"#complete/"+CID:"#course/"+CID}
