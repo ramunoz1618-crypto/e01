@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Journey: Becoming an Agent</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F7FB;--panel:#FFFFFF;--ink:#0E2A47;--muted:#4A6078;--accent:#1F6FEB;--rise:#F5A524;--line:#D3DEEB;
+--gray:#C3CEDB;--red:#E5484D;--orange:#F5821F;--yellow:#F2C200;--green:#1FBF68;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0A1B2E;--panel:#12294A;--ink:#EEF3FA;--muted:#A9BBD1;--accent:#5C9BFF;--rise:#FFB84A;--line:#284668;--gray:#3A5675;--green:#2BD97C}}
+:root[data-theme="dark"]{--bg:#0A1B2E;--panel:#12294A;--ink:#EEF3FA;--muted:#A9BBD1;--accent:#5C9BFF;--rise:#FFB84A;--line:#284668;--gray:#3A5675;--green:#2BD97C}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;display:flex;flex-direction:column;overflow:hidden}
+.deck{flex:1;position:relative;min-height:0}
+.slide{position:absolute;inset:0;padding:clamp(20px,5vw,64px);display:none;flex-direction:column;justify-content:center;overflow-y:auto}
+.slide.on{display:flex}
+h1{font-size:clamp(32px,7vw,72px);line-height:1.05;font-weight:800;margin:0 0 16px;letter-spacing:-.02em;max-width:14ch}
+h2{font-size:clamp(24px,4.2vw,40px);line-height:1.1;font-weight:800;margin:0 0 6px;letter-spacing:-.01em}
+p.sub{font-size:clamp(16px,2.4vw,24px);color:var(--muted);margin:0;max-width:34ch;line-height:1.4}
+.title-wrap{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.steps{display:flex;align-items:flex-end;gap:8px;height:clamp(120px,24vw,240px)}
+.steps i{display:block;width:clamp(22px,4.4vw,44px);border-radius:6px 6px 0 0}
+.steps i:nth-child(1){height:14%;background:var(--gray)}.steps i:nth-child(2){height:28%;background:var(--red)}
+.steps i:nth-child(3){height:43%;background:var(--orange)}.steps i:nth-child(4){height:57%;background:var(--yellow)}
+.steps i:nth-child(5){height:71%;background:var(--green)}.steps i:nth-child(6){height:85%;background:var(--green)}
+.steps i:nth-child(7){height:100%;background:var(--green)}
+.head{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.count{font-weight:800;font-size:clamp(16px,2.2vw,22px);color:var(--muted)}
+.count b{color:var(--ink)}
+.overall{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-bottom:16px}
+.overall i{height:8px;border-radius:5px;background:var(--gray);transition:background .35s}
+.list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.st{position:relative;background:var(--panel);border:1px solid var(--line);border-left:6px solid var(--gray);border-radius:12px;padding:14px 16px 18px;opacity:.6;transition:opacity .35s,border-color .35s,transform .35s}
+.st .n{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--gray);color:#fff;font-weight:800;font-size:14px;margin-right:8px;transition:background .35s}
+.st b{font-size:clamp(16px,1.9vw,19px)}
+.st p{margin:6px 0 0;color:var(--muted);font-size:clamp(14px,1.6vw,16px);line-height:1.4}
+.st .tag{display:inline-block;margin-top:8px;font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+.st .meter{position:absolute;left:0;right:0;bottom:0;height:6px;border-radius:0 0 12px 6px;background:transparent;overflow:hidden}
+.st .meter i{display:block;height:100%;width:0;background:var(--gray);transition:width .3s,background .3s}
+.st.active{opacity:1;border-left-color:var(--accent);transform:translateY(-2px);box-shadow:0 6px 20px rgba(31,111,235,.18)}
+.st.active .n{background:var(--accent)}
+.st.s1{opacity:1;border-left-color:var(--red)}.st.s1 .n{background:var(--red)}.st.s1 .meter i{width:25%;background:var(--red)}
+.st.s2{opacity:1;border-left-color:var(--orange)}.st.s2 .n{background:var(--orange)}.st.s2 .meter i{width:50%;background:var(--orange)}
+.st.s3{opacity:1;border-left-color:var(--yellow)}.st.s3 .n{background:var(--yellow);color:#3a2e00}.st.s3 .meter i{width:75%;background:var(--yellow)}
+.st.s4{opacity:1;border-left-color:var(--green)}.st.s4 .n{background:var(--green)}.st.s4 .meter i{width:100%;background:var(--green)}
+.st .done{display:none;color:var(--green);font-weight:800;font-size:13px;margin-left:6px}
+.st.s4 .done{display:inline}
+.note{margin:14px 0 0;color:var(--muted);font-size:clamp(13px,1.6vw,16px)}
+.slide.end{align-items:center;text-align:center}
+.badge{width:clamp(150px,34vw,240px);height:auto;transform:scale(.6);opacity:0;transition:transform .6s cubic-bezier(.2,1.3,.4,1),opacity .4s}
+.end.in .badge{transform:none;opacity:1}
+.end h2{margin-top:18px}
+.backlink{display:inline-block;margin-top:22px;padding:12px 20px;border-radius:12px;background:var(--accent);color:#fff;font-weight:600;text-decoration:none}
+.backlink:hover{filter:brightness(1.1)}
+.end .sub{max-width:38ch}
+nav{display:flex;align-items:center;justify-content:center;padding:12px clamp(16px,4vw,48px);border-top:1px solid var(--line);gap:12px}
+nav button{white-space:nowrap;font:inherit;font-weight:600;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px 18px;cursor:pointer}
+nav button:focus-visible,.backlink:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+nav button:disabled{opacity:.4;cursor:default}
+.dots{display:flex;gap:8px}.dots span{width:10px;height:10px;border-radius:50%;background:var(--line)}.dots span.on{background:var(--rise)}
+.cap{min-height:2.6em;padding:8px clamp(16px,4vw,48px);text-align:center;font-size:clamp(14px,1.9vw,18px);color:var(--ink);font-weight:600}
+.tl{height:4px;background:var(--line)}
+.tl i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--red),var(--orange),var(--yellow),var(--green));transition:width .6s ease}
+.deck{cursor:pointer}
+.foot{font-size:12px;color:var(--muted);text-align:center;padding:0 16px 8px}
+@media (prefers-reduced-motion:reduce){.tl i,.st,.st .n,.st .meter i,.overall i,.badge{transition:none}}
+</style>
+</head>
+<body>
+<div class="deck">
+  <section class="slide on" aria-label="Title">
+    <div class="title-wrap">
+      <div>
+        <h1>The Journey</h1>
+        <p class="sub">Seven steps from your first day to writing your first application.</p>
+      </div>
+      <div class="steps" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+  </section>
+
+  <section class="slide" aria-label="The path">
+    <div class="head">
+      <h2>Your path to becoming an agent</h2>
+      <div class="count" aria-live="polite"><b id="n">0</b> of 7 complete</div>
+    </div>
+    <div class="overall" id="overall" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="list" id="list">
+      <div class="st"><span class="n">1</span><b>Get coded with PHP</b><span class="done">✓ Done</span><p>This starts everything. Once you're coded, you receive an access code for your study materials.</p><span class="tag">Unlocks your study materials</span><span class="meter"><i></i></span></div>
+      <div class="st"><span class="n">2</span><b>Background check and fingerprinting</b><span class="done">✓ Done</span><p>Complete this for your state registration right after you're coded, so it's ready by the time you pass.</p><span class="tag">Do it while you study</span><span class="meter"><i></i></span></div>
+      <div class="st"><span class="n">3</span><b>Study and pass the state exam</b><span class="done">✓ Done</span><p>Work through the course at your own pace, then take your licensing exam.</p><span class="tag">Get licensed</span><span class="meter"><i></i></span></div>
+      <div class="st"><span class="n">4</span><b>Complete your CE training</b><span class="done">✓ Done</span><p>A couple of short courses. Most people finish them in about a day.</p><span class="tag">Quick win</span><span class="meter"><i></i></span></div>
+      <div class="st"><span class="n">5</span><b>Get appointed with carriers</b><span class="done">✓ Done</span><p>Once you're licensed, you're appointed with the insurance companies you'll represent.</p><span class="tag">Required to sell</span><span class="meter"><i></i></span></div>
+      <div class="st"><span class="n">6</span><b>Access carrier illustration portals</b><span class="done">✓ Done</span><p>Companies like Mutual of Omaha and National Life Group give you a portal to create client illustrations.</p><span class="tag">Start helping clients</span><span class="meter"><i></i></span></div>
+      <div class="st"><span class="n">7</span><b>Access the PHP Integrity portal</b><span class="done">✓ Done</span><p>This is where you write applications for your clients.</p><span class="tag">Write business</span><span class="meter"><i></i></span></div>
+    </div>
+    <p class="note">Steps and timing can vary by carrier and state. Some steps can overlap.</p>
+  </section>
+
+  <section class="slide end" id="end" aria-label="Complete">
+    <svg class="badge" viewBox="0 0 200 220" role="img" aria-label="Agent ready badge">
+      <defs>
+        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2BD97C"/><stop offset="1" stop-color="#1F6FEB"/></linearGradient>
+      </defs>
+      <path d="M100 8 L184 38 V108 C184 160 146 196 100 212 C54 196 16 160 16 108 V38 Z" fill="url(#g)"/>
+      <path d="M100 24 L170 48 V108 C170 150 140 182 100 197 C60 182 30 150 30 108 V48 Z" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="3"/>
+      <path d="M66 108 L92 134 L138 80" fill="none" stroke="#fff" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <h2>You're agent ready.</h2>
+    <p class="sub">Every step is done. Now the real work, and the real rewards, begin.</p>
+    <a class="backlink" href="/#careers">Back to Career Opportunities</a>
+  </section>
+</div>
+<div class="cap" id="cap" aria-live="polite"></div>
+<div class="tl" aria-hidden="true"><i id="tl"></i></div>
+<nav>
+  <button id="pp" type="button">Pause</button>
+  <button id="rp" type="button">Replay</button>
+  <button id="snd" type="button" aria-pressed="true">Sound: On</button>
+</nav>
+<div class="foot">For educational purposes only. Carrier and licensing requirements vary.</div>
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide')),cards=[].slice.call(document.querySelectorAll('.st')),
+      bars=[].slice.call(document.querySelectorAll('#overall i')),nEl=document.getElementById('n'),cap=document.getElementById('cap'),
+      tl=document.getElementById('tl'),pp=document.getElementById('pp'),rp=document.getElementById('rp'),snd=document.getElementById('snd'),endEl=document.getElementById('end');
+  var TTS=!!window.speechSynthesis,sound=true,ac=null,i=0,state='idle',tok=0,timers=[];
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var STEPS=[
+    {t:'Becoming an agent is a journey. Here are the seven steps.',min:3200},
+    {t:'Here is the path, from your first day to writing your first application.',min:3000},
+    {k:0,t:'Step one. Get coded with PHP. This starts everything, and unlocks your study materials.',min:3600},
+    {k:1,t:'Step two. Complete your background check and fingerprinting right away, while you study, so it is ready when you pass.',min:3800},
+    {k:2,t:'Step three. Study, and pass your state exam.',min:3200},
+    {k:3,t:'Step four. Complete your CE training. A couple of short courses, usually done in a day.',min:3600},
+    {k:4,t:'Step five. Get appointed with carriers.',min:3000},
+    {k:5,t:'Step six. Get access to carrier illustration portals, so you can start helping clients.',min:3600},
+    {k:6,t:'Step seven. Get access to the Integrity portal, and write your first application.',min:3600},
+    {t:'You are agent ready. Every step is done. Now the real work begins.',min:4200,end:true}
+  ];
+  var N=STEPS.length;
+  function ctx(){if(!ac){try{ac=new (window.AudioContext||window.webkitAudioContext)()}catch(e){}}if(ac&&ac.state==='suspended')ac.resume();return ac}
+  function tone(f,t,d,v){var a=ctx();if(!a||!sound||a.state!=='running')return;var o=a.createOscillator(),g=a.createGain();o.type='sine';o.frequency.value=f;
+    g.gain.setValueAtTime(0,a.currentTime+t);g.gain.linearRampToValueAtTime(v,a.currentTime+t+.02);g.gain.exponentialRampToValueAtTime(.0001,a.currentTime+t+d);
+    o.connect(g);g.connect(a.destination);o.start(a.currentTime+t);o.stop(a.currentTime+t+d+.05)}
+  function tick(k){tone(440+k*55,0,.18,.07)}
+  function chime(){[523.25,659.25,783.99,1046.5].forEach(function(f,x){tone(f,x*.14,.7,.12)});tone(1318.5,.6,1.1,.08)}
+  function later(fn,ms){var id=setTimeout(fn,ms);timers.push(id);return id}
+  function clear(){tok++;timers.forEach(clearTimeout);timers=[];if(TTS)speechSynthesis.cancel()}
+  function voice(){var v=speechSynthesis.getVoices().filter(function(x){return /^en/i.test(x.lang)});
+    return v.filter(function(x){return /natural|google us|samantha|enhanced|premium|aria|jenny/i.test(x.name)})[0]||v.filter(function(x){return /en-US/i.test(x.lang)})[0]||null}
+  function paint(k,st){var c=cards[k];c.classList.remove('s1','s2','s3','s4','active');if(st)c.classList.add('s'+st)}
+  function reset(){cards.forEach(function(c){c.classList.remove('s1','s2','s3','s4','active')});bars.forEach(function(b){b.style.background=''});nEl.textContent=0}
+  function show(n){slides.forEach(function(s,k){s.classList.toggle('on',k===n)});endEl.classList.toggle('in',n===2)}
+  function fillTo(k){cards.forEach(function(c,x){c.classList.remove('s1','s2','s3','s4','active');if(x<k)c.classList.add('s4')});bars.forEach(function(b,x){b.style.background=x<k?'var(--green)':''});nEl.textContent=k}
+  function enter(n){
+    var s=STEPS[n];cap.textContent=s.t;tl.style.width=((n+1)/N*100)+'%';
+    if(n===0){reset();show(0)}
+    else if(n===1){reset();show(1)}
+    else if(s.end){show(2);chime()}
+    else{
+      show(1);fillTo(s.k);
+      var c=cards[s.k];c.classList.add('active');try{c.scrollIntoView({block:'center',behavior:reduce?'auto':'smooth'})}catch(e){}
+      var gap=reduce?0:260;
+      [1,2,3,4].forEach(function(st,x){later(function(){paint(s.k,st);if(st===4){bars[s.k].style.background='var(--green)';nEl.textContent=s.k+1;tick(s.k)}},700+x*gap)});
+    }
+  }
+  function speak(text,done){
+    var my=tok,finished=false,started=false;
+    function fin(){if(finished||my!==tok)return;finished=true;done()}
+    if(!(TTS&&sound)){return false}
+    var u=new SpeechSynthesisUtterance(text);u.lang='en-US';u.rate=1;var v=voice();if(v)u.voice=v;
+    u.onstart=function(){started=true};u.onend=function(){later(fin,500)};u.onerror=function(){};
+    speechSynthesis.speak(u);
+    later(function(){if(!started){speechSynthesis.cancel();finished=false;done.silent=true;fin()}},1200);
+    later(fin,16000);
+    return true;
+  }
+  function run(){
+    if(state!=='playing')return;
+    var n=i,s=STEPS[n],my=tok;enter(n);ui();
+    var advance=function(){if(my!==tok||state!=='playing')return;if(s.end){state='done';ui();return}i=n+1;run()};
+    var t0=Date.now();
+    var spoke=speak(s.t,function(){var wait=Math.max(0,s.min-(Date.now()-t0));later(advance,wait)});
+    if(!spoke)later(advance,s.min+(s.t.length>70?600:0));
+  }
+  function ui(){
+    pp.textContent=state==='playing'?'Pause':state==='paused'?'Play':state==='done'?'Play again':'Play';
+    pp.disabled=false;
+  }
+  function play(){ctx();state='playing';run()}
+  function pause(){state='paused';clear();ui()}
+  function replay(){clear();i=0;state='playing';run()}
+  pp.onclick=function(){if(state==='playing')pause();else if(state==='done')replay();else play()};
+  rp.onclick=function(){ctx();replay()};
+  snd.onclick=function(){sound=!sound;snd.textContent='Sound: '+(sound?'On':'Off');snd.setAttribute('aria-pressed',sound);if(sound)ctx();if(state==='playing'){clear();run()}};
+  document.querySelector('.deck').onclick=function(e){if(e.target.closest('a'))return;ctx();if(state==='playing')pause();else if(state==='done')replay();else play()};
+  document.addEventListener('keydown',function(e){if(e.key===' '){e.preventDefault();pp.click()}});
+  document.addEventListener('pointerdown',function(){ctx()},{once:true});
+  /* plays on its own as soon as the page opens */
+  later(function(){play()},500);
+})();
+</script>
+</body>
+</html>
