@@ -10,7 +10,7 @@
 :root{
   --bg:#f5f6fa;--ink:#0f1330;--muted:#5d6480;--line:#e4e7f0;--card:#fff;--tint:#eef1ff;
   --blue:#2f5bff;--indigo:#5b3df5;--cyan:#22c7e8;--shadow:0 8px 30px rgba(35,45,110,.08);
-  --grad:linear-gradient(135deg,var(--blue),var(--indigo));
+  --grad:linear-gradient(135deg,var(--blue),var(--indigo));--neon:#22E07A;--sun:#FFD43B;--alert:#FF4D4F;
   box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b0e21;--ink:#eef0ff;--muted:#a3a9c9;--line:#23294a;--card:#141939;--tint:#1c2350;--shadow:0 8px 30px rgba(0,0,0,.35)}}
@@ -94,6 +94,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0
 
 .hdr{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:60;background:color-mix(in srgb,var(--bg) 86%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
 .hdr nav{padding:10px 0;min-height:62px}
+main.wrap{padding-top:22px;padding-bottom:36px}
 body{padding-top:62px}
 .acct{flex-direction:row!important;align-items:center!important;gap:12px!important}
 .rg{--c:var(--muted);position:relative;display:grid;place-items:center;color:var(--c);width:44px;height:44px;border-radius:50%}
@@ -138,6 +139,18 @@ body{padding-top:62px}
 .jy span.t{line-height:1.35;padding-top:2px}
 .svn{color:var(--muted);font-size:13px;text-align:center;margin-top:8px}
 @media(max-width:420px){.tile b{font-size:26px}.hero .rg{width:88px;height:88px}.hero .rg b{font-size:38px}}
+.flag{position:relative;z-index:2;align-self:flex-start;margin:0 0 14px;display:inline-flex;align-items:center;gap:8px;background:var(--neon);color:#04260f;font-weight:800;font-size:13px;letter-spacing:.05em;text-transform:uppercase;padding:7px 13px;border-radius:99px;box-shadow:0 4px 16px rgba(34,224,122,.5)}
+.flag i{width:8px;height:8px;border-radius:50%;background:#04260f;animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+@media(prefers-reduced-motion:reduce){.flag i{animation:none}}
+.rg b.l2{font-size:17px}.rg b.l3{font-size:14px}
+.hero .rg b.l2{font-size:36px}.hero .rg b.l3{font-size:28px}
+.rg[data-s=r]{--c:#5B3DF5}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .rg[data-s=r]{--c:#9A8BFF}}
+.rkc{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.rkb{font:inherit;font-weight:600;font-size:14px;color:var(--ink);background:var(--card);border:1.5px solid var(--line);border-radius:12px;padding:9px 12px;cursor:pointer}
+.rkb b{color:var(--indigo);margin-right:6px}
+.rkb[aria-pressed=true]{border-color:var(--indigo);background:var(--tint)}
 .lnk{display:block;text-align:center;margin-top:14px;font-weight:600;color:var(--blue)}
 .ct{display:flex;flex-direction:column;gap:3px;min-width:0}
 .ct small{font-weight:500;font-size:13.5px;color:var(--muted)}
@@ -149,7 +162,7 @@ body{padding-top:62px}
 .lang{display:inline-flex;align-items:center;gap:7px;font-weight:600;font-size:14px;color:var(--blue);padding:6px 14px;border-radius:99px;background:var(--tint)}
 .langrow{margin-bottom:14px}
 .lang:hover{background:var(--blue);color:#fff}
-main{flex:1;display:flex;flex-direction:column;justify-content:center;padding:24px 0 40px}
+main{flex:1;display:flex;flex-direction:column;justify-content:safe center;padding:24px 0 40px}
 h1{font-size:clamp(40px,7vw,68px);line-height:1.05;letter-spacing:-.03em;font-weight:800;margin:0 0 12px;text-align:center}
 .sub{text-align:center;color:var(--muted);margin:0 0 40px;font-size:18px}
 .choices{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:860px;margin:0 auto;width:100%}
@@ -191,7 +204,7 @@ footer a:hover{color:var(--ink)}
     </a>
     <a class="choice" href="#careers">
       <svg class="art" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="3"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2M2 13h20"/></svg>
-      <h2 data-i="t2">A New Beginning</h2>
+      <span class="flag"><i></i><span data-i="c1">Get Licensed</span></span><h2 data-i="t2">A New Beginning</h2>
       <p data-i="d2">A life-changing opportunity.</p>
       <span class="go"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
     </a>
@@ -313,6 +326,7 @@ try{var q=JSON.parse(localStorage.getItem("eo-course"));if(q&&q.p)S=q}catch(e){}
 function sv(){try{localStorage.setItem("eo-course",JSON.stringify(S))}catch(e){}if(window.updTrk)updTrk()}
 var U={en:{"back": "Back", "compl": "complete", "ofn": "%d of %n lessons completed", "about": "About %m minutes", "view": "View completion", "cont": "Continue where you left off", "done": "Completed", "up": "Up next", "lock": "Locked", "avail": "Available", "min": "min", "bl": "Back to lessons", "lm": "Lesson mode", "rd": "Reading", "au": "Audio", "ck": "Check Your Knowledge", "ok": "Correct!", "no": "Not quite, but you're close.", "again": "Give it another try.", "ans": "The answer is: ", "pos": "Audio position", "prev": "\u2039 Prev", "pv": "Previous section", "nx": "Next \u203a", "nxl": "Next section", "b10": "Back 10 seconds", "f10": "Forward 10 seconds", "pp": "Play or pause", "sp": "Playback speed", "noau": "Audio isn't available in this browser.", "fin": "Finish lesson", "go": "Continue", "chk": "Check Answer", "try": "Try Again", "exit": "Exit", "cdone": "Course completed", "lcomp": "lessons completed", "kc": "knowledge checks", "cmp": "completed", "rec": "Recommended next", "soon": "Coming soon", "start": "Start next course", "btc": "Back to chapters", "tck": "Check your knowledge.", "rem": "Remember", "pct": "percent", "enonly": "This chapter is available in English only for now. Spanish is coming soon."},es:{"back": "Regresar", "compl": "completado", "ofn": "%d de %n lecciones completadas", "about": "Aproximadamente %m minutos", "view": "Ver cierre del curso", "cont": "Continuar donde te quedaste", "done": "Completada", "up": "Sigue", "lock": "Bloqueada", "avail": "Disponible", "min": "min", "bl": "Regresar a las lecciones", "lm": "Modo de la lecci\u00f3n", "rd": "Lectura", "au": "Audio", "ck": "Revisa lo aprendido", "ok": "\u00a1Correcto!", "no": "Casi, vas bien.", "again": "Int\u00e9ntalo de nuevo.", "ans": "La respuesta es: ", "pos": "Posici\u00f3n del audio", "prev": "\u2039 Anterior", "pv": "Secci\u00f3n anterior", "nx": "Siguiente \u203a", "nxl": "Siguiente secci\u00f3n", "b10": "Retroceder 10 segundos", "f10": "Adelantar 10 segundos", "pp": "Reproducir o pausar", "sp": "Velocidad de reproducci\u00f3n", "noau": "El audio no est\u00e1 disponible en este navegador.", "fin": "Terminar lecci\u00f3n", "go": "Continuar", "chk": "Revisar respuesta", "try": "Intentar de nuevo", "exit": "Salir", "cdone": "Curso completado", "lcomp": "lecciones completadas", "kc": "preguntas de repaso", "cmp": "completado", "rec": "Recomendado a continuaci\u00f3n", "soon": "Pr\u00f3ximamente", "start": "Empezar el siguiente curso", "btc": "Regresar a los cap\u00edtulos", "tck": "Revisa lo aprendido.", "rem": "Recuerda", "pct": "por ciento", "enonly": "Este cap\u00edtulo por ahora solo est\u00e1 en ingl\u00e9s. El espa\u00f1ol llegar\u00e1 pronto."}};
 Object.assign(U.en,{"trk": "My progress", "chap": "Chapter", "nostart": "not started yet", "pgt": "My Progress", "pgs": "Your numbers at a glance.", "cur0": "Start Chapter 1 to begin.", "curn": "Chapter %d in progress", "curd": "Every available chapter is finished", "t1": "Chapters finished", "t2": "Lessons completed", "t3": "Knowledge checks passed", "cht": "Study progress", "cht2": "Percent of each course completed.", "lst": "Chapter 1 lessons", "jyt": "Your journey to becoming an agent", "jys": "Tap each step when you finish it.", "jyn": "%d of 7 steps done", "pgsave": "Saved on this device for now. Accounts are coming soon.", "wh": "Where you are", "j1": "Get coded with PHP", "j2": "Background check and fingerprinting", "j3": "Study and pass the state exam", "j4": "Complete your CE training", "j5": "Get appointed with carriers", "j6": "Access carrier illustration portals", "j7": "Access the PHP Integrity portal"});Object.assign(U.es,{"trk": "Mi progreso", "chap": "Cap\u00edtulo", "nostart": "a\u00fan no empiezas", "pgt": "Mi progreso", "pgs": "Tus n\u00fameros de un vistazo.", "cur0": "Empieza el Cap\u00edtulo 1 para comenzar.", "curn": "Cap\u00edtulo %d en curso", "curd": "Todos los cap\u00edtulos disponibles est\u00e1n terminados", "t1": "Cap\u00edtulos terminados", "t2": "Lecciones completadas", "t3": "Preguntas de repaso acertadas", "cht": "Avance de estudio", "cht2": "Porcentaje completado de cada curso.", "lst": "Lecciones del Cap\u00edtulo 1", "jyt": "Tu camino para ser agente", "jys": "Toca cada paso cuando lo termines.", "jyn": "%d de 7 pasos listos", "pgsave": "Por ahora se guarda en este dispositivo. Las cuentas llegar\u00e1n pronto.", "wh": "D\u00f3nde vas", "j1": "Codificarte con PHP", "j2": "Verificaci\u00f3n de antecedentes y huellas digitales", "j3": "Estudiar y aprobar el examen estatal", "j4": "Completar tu educaci\u00f3n continua (CE)", "j5": "Nombramiento con aseguradoras", "j6": "Acceso a los portales de ilustraciones de las aseguradoras", "j7": "Acceso al portal PHP Integrity"});
+Object.assign(U.en,{"rkt": "My rank", "rks": "Choose your current PHP rank. Your corner badge will show it.", "lic": "Licensed", "trn": "Trainee", "rk1": "Trainee", "rk2": "Associate", "rk3": "Field Associate", "rk4": "Director", "rk5": "Marketing Director", "rkn": "Rank"});Object.assign(U.es,{"rkt": "Mi rango", "rks": "Elige tu rango actual en PHP. Tu insignia de la esquina lo mostrar\u00e1.", "lic": "Con licencia", "trn": "Trainee", "rk1": "Trainee", "rk2": "Associate", "rk3": "Field Associate", "rk4": "Director", "rk5": "Marketing Director", "rkn": "Rango"});
 function es(){return document.documentElement.lang==="es-MX"}
 function u(k,a,b){var t=U[es()?"es":"en"][k];return t.replace("%d",a).replace("%n",b).replace("%m",a)}
 function CO(id){return es()&&ES[id]||COURSES[id]}
@@ -324,17 +338,23 @@ function chFrac(id){var c=COURSES[id],p=PR(id),t=0;c.lessons.forEach(function(l)
 function chDone(id){var p=PR(id);return COURSES[id].lessons.every(function(l){return p.d[l.id]})}
 function chStarted(id){var p=PR(id);return !!p.st||Object.keys(p.d).length>0||Object.keys(p.at).some(function(k){return p.at[k]>0})}
 function stOf(f,dn){return dn?"g":f<=0?"off":f<.4?"o":"y"}
-function lvl(){if(HOLD)return HOLD;if(!chStarted("ch1"))return{n:0,f:0,s:"off"};
+function chap(){if(HOLD)return HOLD;if(!chStarted("ch1"))return{n:0,f:0,s:"off"};
  for(var k=0;k<CHS.length;k++){if(!chDone(CHS[k])){var f=chFrac(CHS[k]);return{n:k+1,f:f,s:stOf(f,false)}}}
  return{n:CHS.length+1,f:0,s:"off"}}
-window.updTrk=function(){var t=document.getElementById("trk");if(!t)return;var q=lvl();
- document.getElementById("trkn").textContent=q.n;t.setAttribute("data-s",q.s);
+var RC=["","T","A","FA","D","MD"],RK=0;try{RK=+localStorage.getItem("eo-rk")||0}catch(e){}
+function lvl(){var q=chap(),coded=!!(JY[0]||RK>=1);
+ if(RK>=2)return{label:RC[RK],f:1,s:"r",n:q.n,r:RK};
+ if(JY[2])return{label:"LI",f:1,s:"g",n:q.n,lic:1};
+ return{label:(coded?"T":"")+q.n,f:q.f,s:q.s,n:q.n,coded:coded}}
+function lvlName(q){return q.r?u("rk"+q.r):q.lic?u("lic"):q.coded?u("rk1"):""}
+window.updTrk=function(){var t=document.getElementById("trk");if(!t)return;var q=lvl(),nb=document.getElementById("trkn");
+ nb.textContent=q.label;nb.className="l"+Math.min(q.label.length,3);t.setAttribute("data-s",q.s);
  document.getElementById("trkarc").style.strokeDashoffset=119.4*(1-q.f);
- t.setAttribute("aria-label",u("trk")+": "+(q.n?u("chap")+" "+q.n+(q.f>0?", "+Math.round(q.f*100)+"%":""):u("nostart")));
- if(LAST!==null&&LAST!==q.n){t.classList.remove("pop");void t.offsetWidth;t.classList.add("pop")}
- LAST=q.n}
+ var nm3=lvlName(q);t.setAttribute("aria-label",u("trk")+": "+(nm3?nm3+(q.r||q.lic?"":", "+u("chap")+" "+q.n+(q.f>0?", "+Math.round(q.f*100)+"%":"")):q.n?u("chap")+" "+q.n+(q.f>0?", "+Math.round(q.f*100)+"%":""):u("nostart")));
+ if(LAST!==null&&LAST!==q.label){t.classList.remove("pop");void t.offsetWidth;t.classList.add("pop")}
+ LAST=q.label};
 function celebrate(){var k=CHS.indexOf(CID);HOLD={n:k+1,f:1,s:"g"};updTrk();setTimeout(function(){HOLD=null;updTrk()},3800)}
-function ping(){if(pinged)return;pinged=true;if(lvl().n!==0)return;var t=document.getElementById("trk");t.classList.add("ping");setTimeout(function(){t.classList.remove("ping")},1400)}
+function ping(){if(pinged)return;pinged=true;if(lvl().label!=="0")return;var t=document.getElementById("trk");t.classList.add("ping");setTimeout(function(){t.classList.remove("ping")},1400)}
 ["pointerdown","keydown"].forEach(function(ev){document.addEventListener(ev,ping,{capture:true})});
 var JY=[0,0,0,0,0,0,0];try{var jq=JSON.parse(localStorage.getItem("eo-jy"));if(jq&&jq.length===7)JY=jq}catch(e){}
 function jsave(){try{localStorage.setItem("eo-jy",JSON.stringify(JY))}catch(e){}}
@@ -343,7 +363,7 @@ window.renderProgress=function(){var g=document.getElementById("pgx");if(!g)retu
  c1=COURSES.ch1,ci=COURSES.intro,l1=c1.lessons.filter(function(l){return p1.d[l.id]}).length,li=ci.lessons.filter(function(l){return pi.d[l.id]}).length,
  tk=0;c1.lessons.forEach(function(l){l.s.forEach(function(x){if(x.q)tk++})});
  var chd=CHS.filter(chDone).length,
- hero='<div class="hero"><a class="rg" data-s="'+q.s+'" href="#progress"><svg viewBox="0 0 44 44" aria-hidden="true"><circle class="tr" cx="22" cy="22" r="19"/><circle class="ar" cx="22" cy="22" r="19" transform="rotate(-90 22 22)" style="stroke-dashoffset:'+(119.4*(1-q.f))+'"/></svg><b>'+q.n+'</b></a><div><small>'+u("wh")+'</small><strong>'+(q.n===0?u("cur0"):q.n>CHS.length?u("curd"):u("curn",q.n))+'</strong>'+(q.n>0&&q.n<=CHS.length?'<small>'+Math.round(q.f*100)+'%</small>':'')+'</div></div>',
+ hero='<div class="hero"><a class="rg" data-s="'+q.s+'" href="#progress"><svg viewBox="0 0 44 44" aria-hidden="true"><circle class="tr" cx="22" cy="22" r="19"/><circle class="ar" cx="22" cy="22" r="19" transform="rotate(-90 22 22)" style="stroke-dashoffset:'+(119.4*(1-q.f))+'"/></svg><b class="l'+Math.min(q.label.length,3)+'">'+q.label+'</b></a><div><small>'+u("wh")+'</small><strong>'+(q.r?u("rk"+q.r):q.lic?u("lic"):q.coded?u("rk1")+" \u00b7 "+u("chap")+" "+q.n:q.n===0?u("cur0"):q.n>CHS.length?u("curd"):u("curn",q.n))+'</strong>'+(!q.r&&!q.lic&&q.n>0&&q.n<=CHS.length?'<small>'+Math.round(q.f*100)+'%</small>':'')+'</div></div>',
  tiles='<div class="tiles"><div class="tile"><b>'+chd+'<i>/6</i></b><small>'+u("t1")+'</small></div><div class="tile"><b>'+(l1+li)+'<i>/'+(c1.lessons.length+ci.lessons.length)+'</i></b><small>'+u("t2")+'</small></div><div class="tile"><b>'+Object.keys(p1.ck).length+'<i>/'+tk+'</i></b><small>'+u("t3")+'</small></div></div>',
  rows="";
  for(var k=1;k<=6;k++){var id="ch"+k,nm2=TT["li"+k];if(COURSES[id]){var f=chFrac(id),dn=chDone(id);rows+=bar(nm2,Math.round(f*100)+"%",f,stOf(f,dn))}else rows+=bar(nm2,u("soon"),0,"off"," soon2")}
@@ -352,12 +372,15 @@ window.renderProgress=function(){var g=document.getElementById("pgx");if(!g)retu
  var jn=JY.reduce(function(a,b){return a+(b?1:0)},0),jl='<div class="seg7" aria-hidden="true">'+JY.map(function(v){return '<i class="'+(v?"on":"")+'"></i>'}).join("")+'</div><div role="group" aria-label="'+u("jyt")+'">';
  for(var j=0;j<7;j++)jl+='<button type="button" class="jy" role="checkbox" aria-checked="'+(JY[j]?"true":"false")+'" data-j="'+j+'"><span class="bx">'+(JY[j]?"✓":"")+'</span><span class="t">'+u("j"+(j+1))+'</span></button>';
  jl+='</div>';
- g.innerHTML='<div class="pgw"><a class="back" href="#home">&larr; '+u("back")+'</a><h1>'+u("pgt")+'</h1><p class="sub">'+u("pgs")+'</p>'+hero+tiles+
+ var rank='<div class="pcard"><h2>'+u("rkt")+'</h2><p class="hs">'+u("rks")+'</p><div class="rkc">'+[1,2,3,4,5].map(function(k){return '<button type="button" class="rkb" data-rk="'+k+'" aria-pressed="'+(RK===k?"true":"false")+'"><b>'+RC[k]+'</b>'+u("rk"+k)+'</button>'}).join("")+'</div></div>';
+ g.innerHTML='<div class="pgw"><a class="back" href="#home">&larr; '+u("back")+'</a><h1>'+u("pgt")+'</h1><p class="sub">'+u("pgs")+'</p>'+hero+tiles+rank+
  '<div class="pcard"><h2>'+u("cht")+'</h2><p class="hs">'+u("cht2")+'</p>'+rows+'</div>'+
  '<div class="pcard"><h2>'+u("lst")+'</h2>'+lrows+'</div>'+
  '<div class="pcard"><h2>'+u("jyt")+'</h2><p class="hs">'+u("jys")+' <b>'+u("jyn",jn)+'</b></p>'+jl+'</div><p class="svn">'+u("pgsave")+'</p></div>';
  window.scrollTo(0,0)};
-document.getElementById("pgx").addEventListener("click",function(e){var b=e.target.closest("[data-j]");if(!b)return;var j=+b.dataset.j;JY[j]=JY[j]?0:1;jsave();var y=window.scrollY;renderProgress();window.scrollTo(0,y)});
+document.getElementById("pgx").addEventListener("click",function(e){var y=window.scrollY,r=e.target.closest("[data-rk]"),b=e.target.closest("[data-j]");
+ if(r){var k=+r.dataset.rk;RK=RK===k?0:k;try{localStorage.setItem("eo-rk",RK)}catch(x){}updTrk();renderProgress();window.scrollTo(0,y);return}
+ if(!b)return;var j=+b.dataset.j;JY[j]=JY[j]?0:1;jsave();updTrk();renderProgress();window.scrollTo(0,y)});
 
 function setC(id){if(!COURSES[id])id="intro";if(CID!==id){CID=id;L.id=""}}
 function PR(id){return S.p[id]||(S.p[id]={d:{},at:{},ck:{}})}
