@@ -379,15 +379,18 @@ var JY=[0,0,0,0,0,0,0];try{var jq=JSON.parse(localStorage.getItem("eo-jy"));if(j
 function jsave(){try{localStorage.setItem("eo-jy",JSON.stringify(JY))}catch(e){}if(window.EO)EO.changed()}
 function esc(t){return String(t).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
 var CFG=window.EO_CONFIG||{};
-window.EOA={user:null,err:"",admin:false,ready:!(CFG.supabaseUrl&&CFG.supabaseAnonKey),team:null,teamErr:"",fetchTeam:function(){},enabled:!!(CFG.supabaseUrl&&CFG.supabaseAnonKey),signIn:function(){},signOut:function(){},
+window.EOA={gated:false,user:null,err:"",admin:false,ready:!(CFG.supabaseUrl&&CFG.supabaseAnonKey),team:null,teamErr:"",fetchTeam:function(){},enabled:!!(CFG.supabaseUrl&&CFG.supabaseAnonKey),signIn:function(){},signOut:function(){},
  name:function(){var m=(this.user&&this.user.user_metadata)||{};return m.full_name||m.name||((this.user&&this.user.email)||"").split("@")[0]||""},
- refresh:function(){var b=document.querySelector(".login");if(b)b.textContent=this.user?this.name().split(" ")[0].slice(0,12):T[es()?"es":"en"].login;if(location.hash==="#login")renderLogin();if(location.hash==="#team")route()}};
+ refresh:function(){var b=document.querySelector(".login");if(b)b.textContent=this.user?this.name().split(" ")[0].slice(0,12):T[es()?"es":"en"].login;if(location.hash==="#login")renderLogin();if(location.hash==="#team")route();if(this.gated&&/^#lesson/.test(location.hash)){this.gated=false;courseRoute(location.hash)}}};
+Object.assign(U.en,{gtt:"Create your free account",gts:"Sign in with Google to start your lessons. It\u2019s free and saves your progress.",gbk:"Back to chapter",ld:"Loading\u2026"});Object.assign(U.es,{gtt:"Crea tu cuenta gratis",gts:"Inicia sesi\u00f3n con Google para empezar tus lecciones. Es gratis y guarda tu progreso.",gbk:"Regresar al cap\u00edtulo",ld:"Cargando\u2026"});
+var GS="<svg width=\"20\" height=\"20\" viewBox=\"0 0 48 48\" aria-hidden=\"true\"><path fill=\"#EA4335\" d=\"M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.5 5.4 2.6 13.2l7.9 6.1C12.4 13.6 17.7 9.5 24 9.5z\"/><path fill=\"#4285F4\" d=\"M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4.1 7.1-10.1 7.1-17.5z\"/><path fill=\"#FBBC05\" d=\"M10.5 28.7a14.5 14.5 0 0 1 0-9.4l-7.9-6.1a24 24 0 0 0 0 21.6l7.9-6.1z\"/><path fill=\"#34A853\" d=\"M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.5-5.8c-2.1 1.4-4.9 2.3-8.4 2.3-6.3 0-11.6-4.1-13.5-9.8l-7.9 6.1C6.5 42.6 14.6 48 24 48z\"/></svg>";
 window.renderLogin=function(){var g=document.getElementById("lgx");if(!g)return;var A=window.EOA,h='<div class="lgw"><a class="back" href="#home">&larr; '+u("back")+'</a><div class="lgc">';
  if(A.user){var m=A.user.user_metadata||{},av=m.avatar_url||m.picture,nm=A.name();
   h+='<div class="av">'+(av&&/^https:/.test(av)?'<img src="'+esc(av)+'" alt="" referrerpolicy="no-referrer">':esc((nm||"?").charAt(0).toUpperCase()))+'</div><h1>'+u("lgin")+'</h1><p class="sub">'+esc(nm)+'<br><small>'+esc(A.user.email||"")+'</small></p><a class="pbtn" href="#progress">'+u("vp")+'</a>'+(A.admin?'<a class="pbtn" href="#team" style="margin-top:10px">Team</a>':"")+'<button type="button" class="lgo" data-lo="1">'+u("lgout")+'</button><p class="svn">'+u("syn")+'</p>'}
  else if(!A.enabled){h+='<h1>'+u("lgt")+'</h1><p class="sub">'+u("soonacc")+'</p>'}
- else{h+='<h1>'+u("lgt")+'</h1><p class="sub">'+u("lgs")+'</p><button type="button" class="gbtn" data-gi="1">'+"<svg width=\"20\" height=\"20\" viewBox=\"0 0 48 48\" aria-hidden=\"true\"><path fill=\"#EA4335\" d=\"M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.5 5.4 2.6 13.2l7.9 6.1C12.4 13.6 17.7 9.5 24 9.5z\"/><path fill=\"#4285F4\" d=\"M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4.1 7.1-10.1 7.1-17.5z\"/><path fill=\"#FBBC05\" d=\"M10.5 28.7a14.5 14.5 0 0 1 0-9.4l-7.9-6.1a24 24 0 0 0 0 21.6l7.9-6.1z\"/><path fill=\"#34A853\" d=\"M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.5-5.8c-2.1 1.4-4.9 2.3-8.4 2.3-6.3 0-11.6-4.1-13.5-9.8l-7.9 6.1C6.5 42.6 14.6 48 24 48z\"/></svg>"+'<span>'+u("gbtn")+'</span></button>'+(A.err?'<p class="lge" role="alert">'+u("err")+'</p>':'')}
+ else{h+='<h1>'+u("lgt")+'</h1><p class="sub">'+u("lgs")+'</p><button type="button" class="gbtn" data-gi="1">'+GS+'<span>'+u("gbtn")+'</span></button>'+(A.err?'<p class="lge" role="alert">'+u("err")+'</p>':'')}
  g.innerHTML=h+'</div></div>';window.scrollTo(0,0)};
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("[data-gate]");if(b){try{sessionStorage.setItem("eo-next",b.getAttribute("data-gate"))}catch(x){}EOA.signIn()}});
 document.getElementById("lgx").addEventListener("click",function(e){if(e.target.closest("[data-gi]"))EOA.signIn();else if(e.target.closest("[data-lo]"))EOA.signOut()});
 window.renderTeam=function(){var g=document.getElementById("tmx");if(!g)return;var A=window.EOA;
  if(!A.ready){g.innerHTML='<div class="tmw"><p class="hs">Loading…</p></div>';return}
@@ -496,6 +499,9 @@ window.courseRoute=function(h){if(!h){stop();chips();return}
 var m=h.match(/^#lesson\/(\w+)(?:\/(\w+))?/);
 if(m){var cid=m[2]?m[1]:"intro",lid=m[2]||m[1];
 if(!COURSES[cid]){location.hash="#license";return}
+if(window.EOA&&EOA.enabled&&(!EOA.ready||!EOA.user)){stop();EOA.gated=true;setC(cid);var gx=document.getElementById("cr");
+gx.innerHTML=!EOA.ready?'<div class="lgw"><p class="sub">'+u("ld")+'</p></div>':'<div class="lgw"><a class="back" href="#course/'+cid+'">&larr; '+u("gbk")+'</a><div class="lgc"><h1>'+u("gtt")+'</h1><p class="sub">'+u("gts")+'</p><button type="button" class="gbtn" data-gate="'+esc(h)+'">'+GS+u("gbtn")+'</button>'+(EOA.err?'<p class="lge">'+u("err")+'</p>':'')+'</div></div>';window.scrollTo(0,0);return}
+EOA.gated=false;
 setC(cid);var l=LS(lid),i=l?C().lessons.indexOf(l):-1,cu=cur();
 if(!l||(cu>=0&&i>cu)){location.hash="#course/"+cid;return}
 if(L.id!==lid){L.id=lid;L.i=Math.min(P().at[lid]||0,l.s.length-1);K={s:null,r:null,n:0}}if(CHS.indexOf(cid)>-1&&!PR(cid).st){PR(cid).st=1;sv()}stop();pr(true)}
@@ -525,6 +531,8 @@ updTrk();route();
    if(session&&(ev==="SIGNED_IN"||ev==="INITIAL_SESSION")){if(/[?&]code=/.test(location.search))try{history.replaceState(null,"",location.pathname+location.hash)}catch(e){}pull()}
   },0)});
  }
+ function goNext(){var n=null;try{n=sessionStorage.getItem("eo-next");sessionStorage.removeItem("eo-next")}catch(e){}if(n&&/^#lesson\//.test(n)&&A.user)location.hash=n}
+ setTimeout(function(){if(!A.ready){A.ready=true;A.refresh()}},4000);
  function blank(){return{d:{},at:{},ck:{}}}
  function merge(l,r){var out={courses:{},journey:[],rank:null},ids={};
   Object.keys(l.courses).concat(Object.keys(r.courses)).forEach(function(k){ids[k]=1});
@@ -538,7 +546,7 @@ updTrk();route();
   for(var i=0;i<7;i++)out.journey[i]=r.journey[i]!=null?r.journey[i]:(l.journey[i]?1:0);
   out.rank=r.rank!=null?r.rank:(l.rank!=null?l.rank:null);
   return out}
- function pull(){var uid=A.user.id;if(pulled===uid)return;
+ function pull(){var uid=A.user.id;if(pulled===uid){goNext();return}
   var T=function(t){return sb.from(t).select("*")};
   Promise.all([T("course_status"),T("lesson_progress"),T("knowledge_checks"),T("journey_steps"),sb.from("profiles").select("agent_rank,is_admin").eq("id",uid).maybeSingle()]).then(function(r){
    for(var i=0;i<r.length;i++)if(r[i].error)throw r[i].error;
@@ -549,9 +557,9 @@ updTrk();route();
    r[2].data.forEach(function(x){C(x.course_id).ck[x.check_key]=1});
    r[3].data.forEach(function(x){if(x.step>=1&&x.step<=7)rem.journey[x.step-1]=x.done?1:0});
    if(r[4].data&&r[4].data.agent_rank!=null)rem.rank=r[4].data.agent_rank;A.admin=!!(r[4].data&&r[4].data.is_admin);A.ready=true;
-   var m=merge(EO.snap(),rem);EO.apply(m);pulled=uid;A.refresh();
+   var m=merge(EO.snap(),rem);EO.apply(m);pulled=uid;A.refresh();goNext();
    return push(m)
-  }).catch(function(e){console.warn("ElevateOne sync (pull)",e);A.ready=true;A.refresh()})}
+  }).catch(function(e){console.warn("ElevateOne sync (pull)",e);A.ready=true;A.refresh();goNext()})}
  function push(m){if(!A.user)return Promise.resolve();var uid=A.user.id,now=new Date().toISOString(),cs=[],lp=[],kc=[],js=[];
   Object.keys(m.courses).forEach(function(id){var c=m.courses[id];
    cs.push({user_id:uid,course_id:id,started:!!c.st||Object.keys(c.d).length>0,completed_at:c.done||null,updated_at:now});
