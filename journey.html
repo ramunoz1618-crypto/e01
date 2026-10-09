@@ -67,9 +67,15 @@ nav button:disabled{opacity:.4;cursor:default}
 .deck{cursor:pointer}
 .foot{font-size:12px;color:var(--muted);text-align:center;padding:0 16px 8px}
 @media (prefers-reduced-motion:reduce){.tl i,.st,.st .n,.st .meter i,.overall i,.badge{transition:none}}
+
+.eo-exit{position:fixed;top:max(10px,env(safe-area-inset-top));left:12px;z-index:9999;display:inline-flex;align-items:center;gap:7px;padding:9px 14px 9px 11px;border-radius:99px;background:var(--panel);color:var(--ink);border:1px solid var(--line);box-shadow:0 2px 10px rgba(14,42,71,.15);font:700 14px/1 "Plus Jakarta Sans",system-ui,sans-serif;text-decoration:none;-webkit-tap-highlight-color:transparent}
+.eo-exit:hover{border-color:var(--accent)}.eo-exit:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.eo-exit b{display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-size:12px}
 </style>
 </head>
 <body>
+<a class="eo-exit" href="/#home" aria-label="Exit to ElevateOne home" onclick="event.stopPropagation()"><b>&#10005;</b>ElevateOne</a>
+
 <div class="deck">
   <section class="slide on" aria-label="Title">
     <div class="title-wrap">
@@ -121,6 +127,8 @@ nav button:disabled{opacity:.4;cursor:default}
   <button id="snd" type="button" aria-pressed="true">Sound: On</button>
 </nav>
 <div class="foot">For educational purposes only. Carrier and licensing requirements vary.</div>
+<script src="eo-pres.js"></script>
+<script>EOP.apply({"The Journey: Becoming an Agent": "El camino: cómo convertirte en agente", "Exit to ElevateOne home": "Salir al inicio de ElevateOne", "Title": "Título", "The Journey": "El camino", "Seven steps from your first day to writing your first application.": "Siete pasos, desde tu primer día hasta llenar tu primera solicitud.", "The path": "El recorrido", "Your path to becoming an agent": "Tu camino para convertirte en agente", "of 7 complete": "de 7 completos", "Get coded with PHP": "Recibe tu código con PHP", "✓ Done": "✓ Listo", "This starts everything. Once you're coded, you receive an access code for your study materials.": "Con esto empieza todo. Cuando recibes tu código, te dan un código de acceso para tus materiales de estudio.", "Unlocks your study materials": "Desbloquea tus materiales de estudio", "Background check and fingerprinting": "Verificación de antecedentes y huellas digitales", "Complete this for your state registration right after you're coded, so it's ready by the time you pass.": "Hazlo para tu registro estatal justo después de recibir tu código, para que esté listo cuando pases.", "Do it while you study": "Hazlo mientras estudias", "Study and pass the state exam": "Estudia y aprueba el examen estatal", "Work through the course at your own pace, then take your licensing exam.": "Avanza en el curso a tu propio ritmo y después presenta tu examen de licencia.", "Get licensed": "Obtén tu licencia", "Complete your CE training": "Completa tu capacitación de educación continua (CE)", "A couple of short courses. Most people finish them in about a day.": "Un par de cursos cortos. La mayoría los termina en un día.", "Quick win": "Un logro rápido", "Get appointed with carriers": "Obtén tu nombramiento con las aseguradoras", "Once you're licensed, you're appointed with the insurance companies you'll represent.": "Cuando tienes tu licencia, te nombran con las compañías de seguros que vas a representar.", "Required to sell": "Necesario para vender", "Access carrier illustration portals": "Accede a los portales de ilustraciones de las aseguradoras", "Companies like Mutual of Omaha and National Life Group give you a portal to create client illustrations.": "Compañías como Mutual of Omaha y National Life Group te dan un portal para crear ilustraciones para tus clientes.", "Start helping clients": "Empieza a ayudar a clientes", "Access the PHP Integrity portal": "Accede al portal de PHP Integrity", "This is where you write applications for your clients.": "Aquí llenas las solicitudes de tus clientes.", "Write business": "Haz negocio", "Steps and timing can vary by carrier and state. Some steps can overlap.": "Los pasos y los tiempos pueden variar según la aseguradora y el estado. Algunos pasos pueden hacerse al mismo tiempo.", "Complete": "Completo", "Agent ready badge": "Insignia de agente listo", "You're agent ready.": "Ya estás listo para ser agente.", "Every step is done. Now the real work, and the real rewards, begin.": "Todos los pasos están listos. Ahora empieza el trabajo de verdad, y las recompensas de verdad.", "Back to Career Opportunities": "Regresar a Oportunidades profesionales", "Pause": "Pausa", "Replay": "Repetir", "Sound: On": "Sonido: activado", "For educational purposes only. Carrier and licensing requirements vary.": "Solo con fines educativos. Los requisitos de las aseguradoras y de la licencia varían."},{"Play": "Reproducir", "Play again": "Reproducir de nuevo", "Sound: Off": "Sonido: desactivado"});EOP.pill();</script>
 <script>
 (function(){
   var slides=[].slice.call(document.querySelectorAll('.slide')),cards=[].slice.call(document.querySelectorAll('.st')),
@@ -140,7 +148,9 @@ nav button:disabled{opacity:.4;cursor:default}
     {k:6,t:'Step seven. Get access to the Integrity portal, and write your first application.',min:3600},
     {t:'You are agent ready. Every step is done. Now the real work begins.',min:4200,end:true}
   ];
-  var N=STEPS.length;
+  var ES_STEPS=["Convertirse en agente es un camino. Estos son los siete pasos.", "Este es el recorrido, desde tu primer día hasta llenar tu primera solicitud.", "Paso uno. Recibe tu código con PHP. Con esto empieza todo, y desbloquea tus materiales de estudio.", "Paso dos. Completa tu verificación de antecedentes y tus huellas digitales de inmediato, mientras estudias, para que estén listas cuando pases.", "Paso tres. Estudia y aprueba tu examen estatal.", "Paso cuatro. Completa tu capacitación de educación continua. Son un par de cursos cortos, que normalmente se terminan en un día.", "Paso cinco. Obtén tu nombramiento con las aseguradoras.", "Paso seis. Accede a los portales de ilustraciones de las aseguradoras, para que puedas empezar a ayudar a tus clientes.", "Paso siete. Accede al portal de Integrity y llena tu primera solicitud.", "Ya estás listo para ser agente. Todos los pasos están listos. Ahora empieza el trabajo de verdad."];
+  if(EOP.lang==='es')ES_STEPS.forEach(function(t,k){STEPS[k].t=t});
+  var LANG=EOP.lang,N=STEPS.length;
   function ctx(){if(!ac){try{ac=new (window.AudioContext||window.webkitAudioContext)()}catch(e){}}if(ac&&ac.state==='suspended')ac.resume();return ac}
   function tone(f,t,d,v){var a=ctx();if(!a||!sound||a.state!=='running')return;var o=a.createOscillator(),g=a.createGain();o.type='sine';o.frequency.value=f;
     g.gain.setValueAtTime(0,a.currentTime+t);g.gain.linearRampToValueAtTime(v,a.currentTime+t+.02);g.gain.exponentialRampToValueAtTime(.0001,a.currentTime+t+d);
@@ -148,9 +158,9 @@ nav button:disabled{opacity:.4;cursor:default}
   function tick(k){tone(440+k*55,0,.18,.07)}
   function chime(){[523.25,659.25,783.99,1046.5].forEach(function(f,x){tone(f,x*.14,.7,.12)});tone(1318.5,.6,1.1,.08)}
   function later(fn,ms){var id=setTimeout(fn,ms);timers.push(id);return id}
-  function clear(){tok++;timers.forEach(clearTimeout);timers=[];if(TTS)speechSynthesis.cancel()}
-  function voice(){var v=speechSynthesis.getVoices().filter(function(x){return /^en/i.test(x.lang)});
-    return v.filter(function(x){return /natural|google us|samantha|enhanced|premium|aria|jenny/i.test(x.name)})[0]||v.filter(function(x){return /en-US/i.test(x.lang)})[0]||null}
+  function clear(){tok++;timers.forEach(clearTimeout);timers=[];EOP.stop();if(TTS)speechSynthesis.cancel()}
+  function voice(){var v=speechSynthesis.getVoices().filter(function(x){return LANG==='es'?/^es/i.test(x.lang):/^en/i.test(x.lang)});
+    return v.filter(function(x){return /natural|google|samantha|paulina|monica|enhanced|premium|aria|jenny|dalia/i.test(x.name)})[0]||v.filter(function(x){return LANG==='es'?/es[-_]MX/i.test(x.lang):/en-US/i.test(x.lang)})[0]||v[0]||null}
   function paint(k,st){var c=cards[k];c.classList.remove('s1','s2','s3','s4','active');if(st)c.classList.add('s'+st)}
   function reset(){cards.forEach(function(c){c.classList.remove('s1','s2','s3','s4','active')});bars.forEach(function(b){b.style.background=''});nEl.textContent=0}
   function show(n){slides.forEach(function(s,k){s.classList.toggle('on',k===n)});endEl.classList.toggle('in',n===2)}
@@ -170,12 +180,17 @@ nav button:disabled{opacity:.4;cursor:default}
   function speak(text,done){
     var my=tok,finished=false,started=false;
     function fin(){if(finished||my!==tok)return;finished=true;done()}
-    if(!(TTS&&sound)){return false}
-    var u=new SpeechSynthesisUtterance(text);u.lang='en-US';u.rate=1;var v=voice();if(v)u.voice=v;
-    u.onstart=function(){started=true};u.onend=function(){later(fin,500)};u.onerror=function(){};
-    speechSynthesis.speak(u);
-    later(function(){if(!started){speechSynthesis.cancel();finished=false;done.silent=true;fin()}},1200);
+    if(!sound){return false}
+    function browser(){
+      if(my!==tok)return;
+      if(!TTS){finished=false;done.silent=true;fin();return}
+      var u=new SpeechSynthesisUtterance(text);u.lang=LANG==='es'?'es-MX':'en-US';u.rate=1;var v=voice();if(v)u.voice=v;
+      u.onstart=function(){started=true};u.onend=function(){later(fin,500)};u.onerror=function(){};
+      speechSynthesis.speak(u);
+      later(function(){if(!started){speechSynthesis.cancel();finished=false;done.silent=true;fin()}},1200);
+    }
     later(fin,16000);
+    EOP.clip(text,{onstart:function(){started=true},onend:function(){later(fin,500)},onfail:browser});
     return true;
   }
   function run(){
@@ -187,7 +202,7 @@ nav button:disabled{opacity:.4;cursor:default}
     if(!spoke)later(advance,s.min+(s.t.length>70?600:0));
   }
   function ui(){
-    pp.textContent=state==='playing'?'Pause':state==='paused'?'Play':state==='done'?'Play again':'Play';
+    pp.textContent=EOP.t(state==='playing'?'Pause':state==='paused'?'Play':state==='done'?'Play again':'Play');
     pp.disabled=false;
   }
   function play(){ctx();state='playing';run()}
@@ -195,7 +210,7 @@ nav button:disabled{opacity:.4;cursor:default}
   function replay(){clear();i=0;state='playing';run()}
   pp.onclick=function(){if(state==='playing')pause();else if(state==='done')replay();else play()};
   rp.onclick=function(){ctx();replay()};
-  snd.onclick=function(){sound=!sound;snd.textContent='Sound: '+(sound?'On':'Off');snd.setAttribute('aria-pressed',sound);if(sound)ctx();if(state==='playing'){clear();run()}};
+  snd.onclick=function(){sound=!sound;snd.textContent=EOP.t('Sound: '+(sound?'On':'Off'));snd.setAttribute('aria-pressed',sound);if(sound)ctx();if(state==='playing'){clear();run()}};
   document.querySelector('.deck').onclick=function(e){if(e.target.closest('a'))return;ctx();if(state==='playing')pause();else if(state==='done')replay();else play()};
   document.addEventListener('keydown',function(e){if(e.key===' '){e.preventDefault();pp.click()}});
   document.addEventListener('pointerdown',function(){ctx()},{once:true});
