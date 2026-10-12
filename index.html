@@ -135,6 +135,8 @@ body{padding-top:62px}
 .jy:first-of-type{border-top:0}
 .jy .bx{flex:none;width:26px;height:26px;border-radius:8px;border:2px solid var(--line);display:grid;place-items:center;color:#fff;font-weight:800;font-size:15px;transition:background .2s,border-color .2s}
 .jy[aria-checked=true] .bx{background:#1FBF68;border-color:#1FBF68}
+.jy.dn .bx{background:#1FBF68;border-color:#1FBF68}
+.pth .rg{opacity:1!important}
 .jy[aria-checked=true] span.t{color:var(--muted);text-decoration:line-through}
 .jy span.t{line-height:1.35;padding-top:2px}
 .svn{color:var(--muted);font-size:13px;text-align:center;margin-top:8px}
@@ -180,6 +182,40 @@ body{padding-top:62px}
 #ob .obo.on{border-color:var(--blue);background:var(--tint)}#ob .obo.on b{background:var(--blue);border-color:var(--blue)}
 #ob .obn{margin:18px 0 0;color:var(--muted);font-size:13.5px;text-align:center}
 #ob .pbtn[disabled]{opacity:.6}
+.ptw{max-width:560px;margin:0 auto;width:100%}
+.pth{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,var(--blue),var(--indigo));color:#fff;border-radius:24px;padding:20px;margin:6px 0 16px}
+.pth .av{margin:0;flex:none;background:rgba(255,255,255,.22)}.pth div.nm{min-width:0}
+.pth h1{margin:0;font-size:24px;color:#fff;text-align:left;word-break:break-word}
+.pth .pk{display:inline-block;margin-top:6px;background:rgba(255,255,255,.22);padding:4px 12px;border-radius:99px;font-weight:700;font-size:14px}
+.pth .rg{margin-left:auto;flex:none;background:#fff;width:58px;height:58px}
+.bgs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.bg{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;padding:14px 6px;background:var(--tint);border-radius:18px;font-size:13px;font-weight:700;line-height:1.25}
+.bg .bi{font-size:28px;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:var(--card);box-shadow:var(--shadow)}
+.ptl{display:grid;gap:10px;margin-bottom:16px}
+.ptl a{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;font-weight:700;font-size:17px;color:var(--ink)}
+.ptl a .ic{font-size:26px}.ptl a small{display:block;font-weight:400;color:var(--muted);font-size:14px}.ptl a .pch{margin-left:auto;color:var(--muted)}
+.air{display:flex;align-items:center;gap:12px;padding:14px 0;border-top:1px solid var(--line)}.air:first-of-type{border-top:0}
+.air>div{min-width:0;flex:1}.air small{display:block;color:var(--muted);font-size:13.5px}.air b{font-size:18px;word-break:break-all}
+.air>button,.aic button{background:none;border:0;font:inherit;font-weight:600;color:var(--blue);cursor:pointer;padding:8px}
+.aic{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}.aic button{border:1.5px dashed var(--line);border-radius:99px;padding:9px 14px}
+.aif{display:flex;flex-direction:column;gap:10px;padding:10px 2px 6px}.pcard.aif{padding:18px;gap:14px}
+.aif label{font-weight:600;font-size:15px;display:flex;flex-direction:column;gap:6px}
+.aif input{font:inherit;font-weight:400;font-size:17px;padding:13px 14px;border-radius:12px;border:1px solid var(--line);background:#fff;color:#111;width:100%;box-sizing:border-box}
+.aif input:focus{outline:2px solid var(--blue);outline-offset:1px}
+.aif .r{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.aif .pbtn{width:auto;padding:12px 24px;font-size:16px}
+.aif .s2{background:none;border:0;font:inherit;font-weight:600;color:var(--muted);cursor:pointer;padding:10px 8px}
+.aif .lge{margin:0;font-size:14px}
+.jv{display:block;color:var(--muted);font-size:14px;margin-top:2px;word-break:break-all}.jy[aria-expanded=true]{background:var(--tint)}
+.pvr{padding:13px 0;border-top:1px solid var(--line)}.pvr:first-of-type{border-top:0}.pvr small{display:block;color:var(--muted);font-size:13.5px}.pvr b{font-size:17px;font-weight:600;word-break:break-word}.pvr b.no{color:var(--muted);font-weight:400}
+.pvh{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px}.pvh h2{margin:0}
+.pbtn2{font:inherit;font-weight:700;font-size:16px;color:var(--blue);background:var(--tint);border:0;border-radius:12px;padding:10px 20px;cursor:pointer}
+.pef{display:flex;flex-direction:column;gap:14px}.pef label{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:15px}.pef label small{font-weight:400;color:var(--muted);font-size:13.5px}
+.pef input[type=text],.pef input[type=tel],.pef input[type=date],.pef select{font:inherit;font-weight:400;font-size:17px;padding:13px 14px;border-radius:12px;border:1px solid var(--line);background:#fff;color:#111;width:100%;box-sizing:border-box}
+.pef input:focus,.pef select:focus{outline:2px solid var(--blue);outline-offset:1px}
+.pef .r3{display:grid;grid-template-columns:1fr 84px 1fr;gap:10px}
+.pef label.ck{flex-direction:row;align-items:center;gap:12px;font-weight:600;font-size:16px;padding:12px 14px;border:1.5px solid var(--line);border-radius:14px}.pef label.ck input{width:22px;height:22px;flex:none}
+.pef .r{display:flex;gap:8px;align-items:center}.pef .pbtn{width:auto;padding:12px 26px;font-size:16px}
+.pok{color:#1e7a46;font-weight:600;margin:0 0 8px}
 .lgo{margin-top:12px;background:none;border:0;color:var(--blue);font:inherit;font-weight:600;cursor:pointer;padding:10px}
 .lgor{display:flex;align-items:center;gap:12px;margin:20px 0 16px;color:var(--muted);font-size:14px}.lgor:before,.lgor:after{content:"";flex:1;height:1px;background:var(--line)}
 .lgf{display:flex;flex-direction:column;gap:12px;text-align:left}.lgf label{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:15px}
@@ -329,6 +365,9 @@ body.sp-on{overflow:hidden}
 </main>
 <main class="wrap" id="course" hidden><div id="cr"></div></main>
 <main class="wrap" id="progress" hidden><div id="pgx"></div></main>
+<main class="wrap" id="portal" hidden><div id="ptx"></div></main>
+<main class="wrap" id="persmain" hidden><div id="psx"></div></main>
+<main class="wrap" id="ainfo" hidden><div id="inx"></div></main>
 <main class="wrap" id="login" hidden><div id="lgx"></div></main>
 <main class="wrap" id="team" hidden><div id="tmx"></div></main>
 <footer>
@@ -347,7 +386,7 @@ function setLang(l){
   btn.setAttribute("lang",l==="es"?"en":"es-MX");btn.setAttribute("hreflang",l==="es"?"en":"es-MX");
   btn.setAttribute("href",l==="es"?"#en":"#es");
   try{localStorage.setItem("lang",l)}catch(e){}
-  if(window.renderProgress&&location.hash==="#progress")renderProgress();if(window.updTrk)updTrk();if(window.EOA)EOA.refresh();
+  if(window.renderProgress&&location.hash==="#progress")renderProgress();if(window.renderPortal&&location.hash==="#portal")renderPortal();if(window.renderInfo&&location.hash==="#info")renderInfo();if(window.renderPersonal&&location.hash==="#personal")renderPersonal();if(window.updTrk)updTrk();if(window.EOA)EOA.refresh();
   if(window.courseRoute&&/^#(course|lesson|complete)/.test(location.hash))courseRoute(location.hash);
 }
 btn.addEventListener("click",function(e){e.preventDefault();setLang(document.documentElement.lang==="en"?"es":"en")});
@@ -355,7 +394,7 @@ var start="en";
 try{start=localStorage.getItem("lang")||"en"}catch(e){}
 if(location.hash==="#es")start="es";else if(location.hash==="#en")start="en";
 if(start==="es")setLang("es");
-function route(){var h=location.hash,v=h==="#products"?"products":h==="#careers"?"careers":h==="#license"?"license":/^#(course|lesson|complete)/.test(h)?"course":h==="#progress"?"progress":h==="#login"?"login":h==="#team"?"team":"home";if(v==="team"&&window.EOA&&EOA.ready&&!EOA.admin){location.hash="#home";return}["home","products","careers","license","course","progress","login","team"].forEach(function(i){document.getElementById(i).hidden=i!==v});if(window.courseRoute)courseRoute(v==="course"?h:"");if(v==="progress"&&window.renderProgress)renderProgress();if(v==="login"&&window.renderLogin)renderLogin();if(v==="team"&&window.renderTeam)renderTeam();if(v!=="home"||h==="#home")window.scrollTo(0,0)}
+function route(){var h=location.hash,v=h==="#products"?"products":h==="#careers"?"careers":h==="#license"?"license":/^#(course|lesson|complete)/.test(h)?"course":h==="#progress"?"progress":h==="#login"?"login":h==="#team"?"team":h==="#portal"?"portal":h==="#info"?"ainfo":h==="#personal"?"persmain":"home";if(v==="team"&&window.EOA&&EOA.ready&&!EOA.admin){location.hash="#home";return}["home","products","careers","license","course","progress","login","team","portal","ainfo","persmain"].forEach(function(i){document.getElementById(i).hidden=i!==v});if(window.courseRoute)courseRoute(v==="course"?h:"");if(v==="progress"&&window.renderProgress)renderProgress();if(v==="login"&&window.renderLogin)renderLogin();if(v==="portal"&&window.renderPortal)renderPortal();if(v==="ainfo"&&window.renderInfo)renderInfo();if(v==="persmain"&&window.renderPersonal)renderPersonal();if(v==="team"&&window.renderTeam)renderTeam();if(v!=="home"||h==="#home")window.scrollTo(0,0)}
 window.addEventListener("hashchange",route);route();
 </script>
 <script>
@@ -445,9 +484,11 @@ window.EOA={gated:false,user:null,err:"",admin:false,ready:!(CFG.supabaseUrl&&CF
  prof:null,profOK:false,
  fullName:function(){var m=(this.user&&this.user.user_metadata)||{};return(this.prof&&this.prof.full_name)||m.full_name||m.name||((this.user&&this.user.email)||"").split("@")[0]||""},
  name:function(){return(this.prof&&this.prof.nickname)||this.fullName()},
- refresh:function(){var b=document.querySelector(".login");if(b)b.textContent=this.user?this.name().split(" ")[0].slice(0,12):T[es()?"es":"en"].login;if(location.hash==="#login")renderLogin();if(location.hash==="#team")route();if(this.gated&&/^#lesson/.test(location.hash)){this.gated=false;courseRoute(location.hash)}}};
+ refresh:function(){var b=document.querySelector(".login");if(b){b.textContent=this.user?this.name().split(" ")[0].slice(0,12):T[es()?"es":"en"].login;b.setAttribute("href",this.user?"#portal":"#login")}if(location.hash==="#login")renderLogin();if(location.hash==="#portal"&&window.renderPortal)renderPortal();if(location.hash==="#info"&&window.renderInfo)renderInfo();if(location.hash==="#personal"&&window.renderPersonal)renderPersonal();if(location.hash==="#team")route();if(this.gated&&/^#lesson/.test(location.hash)){this.gated=false;courseRoute(location.hash)}}};
 Object.assign(U.en,{gtt:"Create your free account",gts:"Sign in with Google or your email to start your lessons. It\u2019s free and saves your progress.",gbk:"Back to chapter",ld:"Loading\u2026"});Object.assign(U.es,{gtt:"Crea tu cuenta gratis",gts:"Inicia sesi\u00f3n con Google o con tu correo para empezar tus lecciones. Es gratis y guarda tu progreso.",gbk:"Regresar al cap\u00edtulo",ld:"Cargando\u2026"});
 Object.assign(U.en,{"obs":"Step %d of %n","obx":"Skip setup","obk":"Skip","obnx":"Next","obfn":"Finish","obbk":"Back","obpriv":"Everything here is optional and private. It\u2019s only used inside ElevateOne.","ob1t":"What\u2019s your name?","ob1s":"Tell us your full name, and what you\u2019d like us to call you.","obfn_":"Full name","obnn":"Preferred name or nickname (optional)","obnnh":"For example, Mike instead of Michael. This is what we\u2019ll call you in the app.","ob2t":"Where do you live?","ob2s":"Your home address.","obst":"Street address","obci":"City","obsa":"State","obzp":"ZIP code","ob3t":"What\u2019s your phone number?","ob3s":"So your team can reach you.","obph":"Phone number","ob4t":"When\u2019s your birthday?","ob4s":"Your date of birth.","obdb":"Date of birth","ob5t":"Who referred you?","ob5s":"Tell us who invited you.","obch":"Choose one","obno":"No one / I found it myself","ob6t":"What are you most interested in?","ob6s":"Pick all that apply.","obi1":"A career or business opportunity","obi2":"Life insurance","obi3":"Retirement products","obsv":"Saving\u2026","obe":"We couldn\u2019t save that. Please try again.","oblb":"Account setup"});Object.assign(U.es,{"obs":"Paso %d de %n","obx":"Omitir configuraci\u00f3n","obk":"Omitir","obnx":"Siguiente","obfn":"Terminar","obbk":"Atr\u00e1s","obpriv":"Todo es opcional y privado. Solo se usa dentro de ElevateOne.","ob1t":"\u00bfC\u00f3mo te llamas?","ob1s":"Dinos tu nombre completo y c\u00f3mo te gustar\u00eda que te llamemos.","obfn_":"Nombre completo","obnn":"Nombre preferido o apodo (opcional)","obnnh":"Por ejemplo, Mike en lugar de Michael. As\u00ed te llamaremos en la app.","ob2t":"\u00bfD\u00f3nde vives?","ob2s":"Tu domicilio.","obst":"Calle y n\u00famero","obci":"Ciudad","obsa":"Estado","obzp":"C\u00f3digo postal","ob3t":"\u00bfCu\u00e1l es tu n\u00famero de tel\u00e9fono?","ob3s":"Para que tu equipo pueda comunicarse contigo.","obph":"N\u00famero de tel\u00e9fono","ob4t":"\u00bfCu\u00e1ndo es tu cumplea\u00f1os?","ob4s":"Tu fecha de nacimiento.","obdb":"Fecha de nacimiento","ob5t":"\u00bfQui\u00e9n te recomend\u00f3?","ob5s":"Dinos qui\u00e9n te invit\u00f3.","obch":"Elige una opci\u00f3n","obno":"Nadie / Lo encontr\u00e9 por mi cuenta","ob6t":"\u00bfQu\u00e9 te interesa m\u00e1s?","ob6s":"Elige todo lo que aplique.","obi1":"Una oportunidad de carrera o negocio","obi2":"Seguro de vida","obi3":"Productos de retiro","obsv":"Guardando\u2026","obe":"No pudimos guardarlo. Int\u00e9ntalo de nuevo.","oblb":"Configuraci\u00f3n de tu cuenta"});
+Object.assign(U.en,{"pst":"Just getting started","bgt":"Your badges","bge":"Your badges will show up here as you go.","bgs":"Start learning","b1":"Coded with PHP","b2":"Background check done","b3":"State exam passed","b4":"CE complete","b5":"Carrier appointed","b6":"Carrier portals unlocked","b7":"PHP Integrity access","bch":"Chapter %d complete","bint":"Exam prep complete","pti":"Agent Information","ptis":"Your PHP code and other numbers","ptpt":"Your chapters and journey","ai_t":"Agent Information","ai_s":"Your professional numbers, all in one place.","ai_php":"PHP code","ai_fp":"Fingerprinting reference number","ai_php_q":"Enter your PHP code","ai_fp_q":"Enter the reference number from your fingerprinting receipt","ai_save":"Save","ai_cancel":"Cancel","ai_edit":"Edit","ai_rm":"Remove","ai_empty":"Nothing here yet. As you complete steps in your journey, the numbers you enter show up here.","ai_add":"Add","ai_priv":"Only you and ElevateOne administrators can see this.","ai_err":"Please enter a value.","ai_go":"Go to my journey","ptm":"My account"});Object.assign(U.es,{"pst":"Empezando","bgt":"Tus insignias","bge":"Tus insignias aparecerán aquí conforme avances.","bgs":"Empezar a aprender","b1":"Codificado con PHP","b2":"Antecedentes y huellas listos","b3":"Examen estatal aprobado","b4":"CE completa","b5":"Nombrado con aseguradoras","b6":"Portales de aseguradoras activos","b7":"Acceso a PHP Integrity","bch":"Capítulo %d completado","bint":"Preparación para el examen completa","pti":"Información de agente","ptis":"Tu código de PHP y otros números","ptpt":"Tus capítulos y tu camino","ai_t":"Información de agente","ai_s":"Tus números profesionales, todos en un solo lugar.","ai_php":"Código de PHP","ai_fp":"Número de referencia de huellas digitales","ai_php_q":"Ingresa tu código de PHP","ai_fp_q":"Ingresa el número de referencia de tu recibo de huellas digitales","ai_save":"Guardar","ai_cancel":"Cancelar","ai_edit":"Editar","ai_rm":"Quitar","ai_empty":"Todavía no hay nada aquí. Al completar los pasos de tu camino, los números que ingreses aparecerán aquí.","ai_add":"Agregar","ai_priv":"Solo tú y los administradores de ElevateOne pueden ver esto.","ai_err":"Escribe un valor.","ai_go":"Ir a mi camino","ptm":"Mi cuenta"});
+Object.assign(U.en,{"pp_t":"Personal information","pp_s":"Your details. Everything here is optional.","pp_none":"Not added","pp_edit":"Edit","pp_save":"Save","pp_cancel":"Cancel","pp_saved":"Saved","pp_na":"Personal information isn’t available yet. Please try again later.","pp_priv":"Only you and ElevateOne administrators can see this. It’s only used inside ElevateOne.","pp_nn":"Preferred name or nickname","pp_ad":"Home address","pp_rf":"Referred by","pp_in":"Interests","pp_err":"We couldn’t save that. Please try again.","pps":"Name, contact and more"});Object.assign(U.es,{"pp_t":"Información personal","pp_s":"Tus datos. Todo aquí es opcional.","pp_none":"Sin agregar","pp_edit":"Editar","pp_save":"Guardar","pp_cancel":"Cancelar","pp_saved":"Guardado","pp_na":"La información personal todavía no está disponible. Inténtalo más tarde.","pp_priv":"Solo tú y los administradores de ElevateOne pueden ver esto. Solo se usa dentro de ElevateOne.","pp_nn":"Nombre preferido o apodo","pp_ad":"Domicilio","pp_rf":"Recomendado por","pp_in":"Intereses","pp_err":"No pudimos guardarlo. Inténtalo de nuevo.","pps":"Nombre, contacto y más"});
 var GS="<svg width=\"20\" height=\"20\" viewBox=\"0 0 48 48\" aria-hidden=\"true\"><path fill=\"#EA4335\" d=\"M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.5 5.4 2.6 13.2l7.9 6.1C12.4 13.6 17.7 9.5 24 9.5z\"/><path fill=\"#4285F4\" d=\"M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4.1 7.1-10.1 7.1-17.5z\"/><path fill=\"#FBBC05\" d=\"M10.5 28.7a14.5 14.5 0 0 1 0-9.4l-7.9-6.1a24 24 0 0 0 0 21.6l7.9-6.1z\"/><path fill=\"#34A853\" d=\"M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.5-5.8c-2.1 1.4-4.9 2.3-8.4 2.3-6.3 0-11.6-4.1-13.5-9.8l-7.9 6.1C6.5 42.6 14.6 48 24 48z\"/></svg>";
 window.EOW=(function(){var W=null,R2=["George Almaraz","Jasmine Ortega","Robin Munoz"],N=6;
  function el(){return document.getElementById("ob")}
@@ -489,7 +530,7 @@ window.EOW=(function(){var W=null,R2=["George Almaraz","Jasmine Ortega","Robin M
  return{open:open,active:function(){return !!W},redraw:function(){if(W)draw()}}})();
 window.efHTML=function(next){var A=window.EOA,up=A.mode==="up",m=A.em;
  return '<div class="lgor"><span>'+u("or")+'</span></div><form class="lgf" data-ef="1"'+(next?' data-next="'+esc(next)+'"':'')+'>'+(up?'<label>'+u("nm")+'<input type="text" name="nm" autocomplete="name" maxlength="80"></label>':'')+'<label>'+u("em")+'<input type="email" name="em" required autocomplete="email" inputmode="email" value="'+esc(A.email||"")+'"></label><label>'+u("pw")+'<input type="password" name="pw" required minlength="8" autocomplete="'+(up?'new-password':'current-password')+'" placeholder="'+(up?u("pwh"):"")+'"></label><button type="submit" class="pbtn"'+(A.busy?' disabled':'')+'>'+(A.busy?u("wait"):up?u("su"):u("si"))+'</button></form>'+(m?'<p class="lgi'+(m.ok?'':' lge')+'" role="'+(m.ok?'status':'alert')+'">'+u(m.k==="rsd"?"rsd":"e_"+m.k)+(m.k==="unc"?'<button type="button" data-rs="1">'+u("rs")+'</button>':'')+'</p>':'')+'<button type="button" class="lgm" data-em="'+(up?'in':'up')+'">'+(up?u("tosi"):u("tosu"))+'</button>'};
-window.renderLogin=function(){var g=document.getElementById("lgx");if(!g)return;var A=window.EOA,h='<div class="lgw"><a class="back" href="#home">&larr; '+u("back")+'</a><div class="lgc">';
+window.renderLogin=function(){var g=document.getElementById("lgx");if(!g)return;var A=window.EOA;if(A.user&&location.hash==="#login"){location.replace("#portal");return}var h='<div class="lgw"><a class="back" href="#home">&larr; '+u("back")+'</a><div class="lgc">';
  if(A.user){var m=A.user.user_metadata||{},av=m.avatar_url||m.picture,nm=A.name();
   h+='<div class="av">'+(av&&/^https:/.test(av)?'<img src="'+esc(av)+'" alt="" referrerpolicy="no-referrer">':esc((nm||"?").charAt(0).toUpperCase()))+'</div><h1>'+u("lgin")+'</h1><p class="sub">'+esc(nm)+'<br><small>'+esc(A.user.email||"")+'</small></p><a class="pbtn" href="#progress">'+u("vp")+'</a>'+(A.admin?'<a class="pbtn" href="#team" style="margin-top:10px">Team</a>':"")+'<button type="button" class="lgo" data-lo="1">'+u("lgout")+'</button><p class="svn">'+u("syn")+'</p>'}
  else if(!A.enabled){h+='<h1>'+u("lgt")+'</h1><p class="sub">'+u("soonacc")+'</p>'}
@@ -499,7 +540,7 @@ window.addEventListener("hashchange",function(){EOA.em=null});
 document.addEventListener("submit",function(e){var f=e.target.closest&&e.target.closest("[data-ef]");if(!f)return;e.preventDefault();var A=EOA;if(A.busy)return;var em=f.elements.em.value.trim(),pw=f.elements.pw.value,nx=f.getAttribute("data-next");if(!em||pw.length<8){A.email=em;A.em={k:A.mode==="up"?"wk":"bad"};A.refresh();return}if(nx){try{sessionStorage.setItem("eo-next",nx)}catch(x){}}A.email=em;A.emailAuth(A.mode,em,pw,f.elements.nm?f.elements.nm.value.trim():"")});
 document.addEventListener("click",function(e){var t=e.target.closest&&e.target.closest("[data-em],[data-rs]");if(t){var A=EOA,i=document.querySelector("form[data-ef] [name=em]");if(i)A.email=i.value.trim();if(t.hasAttribute("data-rs")){A.resend(A.email)}else{A.mode=t.getAttribute("data-em");A.em=null;A.refresh()}return}var b=e.target.closest&&e.target.closest("[data-gate]");if(b){try{sessionStorage.setItem("eo-next",b.getAttribute("data-gate"))}catch(x){}EOA.signIn()}});
 document.getElementById("lgx").addEventListener("click",function(e){if(e.target.closest("[data-gi]"))EOA.signIn();else if(e.target.closest("[data-lo]"))EOA.signOut()});
-function tmi(p){var IL={career:"Career/business",life:"Life insurance",retire:"Retirement"},a=[];if(p.nickname)a.push("Goes by "+esc(p.nickname));if(p.phone)a.push(esc(p.phone));if(p.referred_by)a.push("Referred by: "+(p.referred_by==="none"?"found it themselves":esc(p.referred_by)));if(p.interests&&p.interests.length)a.push("Interested in: "+p.interests.map(function(k){return IL[k]||esc(k)}).join(", "));return a.length?'<p class="tmm">'+a.join(" · ")+'</p>':""}
+function tmi(p,ai){var ar=(ai||[]).filter(function(x){return x.user_id===p.id})[0],ad=ar&&ar.data||{};var IL={career:"Career/business",life:"Life insurance",retire:"Retirement"},a=[];if(p.nickname)a.push("Goes by "+esc(p.nickname));if(p.phone)a.push(esc(p.phone));if(p.referred_by)a.push("Referred by: "+(p.referred_by==="none"?"found it themselves":esc(p.referred_by)));if(ad.php)a.push("PHP code: "+esc(ad.php));if(ad.fp)a.push("Fingerprint ref: "+esc(ad.fp));if(p.interests&&p.interests.length)a.push("Interested in: "+p.interests.map(function(k){return IL[k]||esc(k)}).join(", "));return a.length?'<p class="tmm">'+a.join(" · ")+'</p>':""}
 window.renderTeam=function(){var g=document.getElementById("tmx");if(!g)return;var A=window.EOA;
  if(!A.ready){g.innerHTML='<div class="tmw"><p class="hs">Loading…</p></div>';return}
  if(!A.admin)return;
@@ -517,14 +558,89 @@ window.renderTeam=function(){var g=document.getElementById("tmx");if(!g)return;v
   av=p.avatar_url&&/^https:/.test(p.avatar_url)?'<img src="'+esc(p.avatar_url)+'" alt="" referrerpolicy="no-referrer">':esc(nm.charAt(0).toUpperCase());
   h+='<div class="pcard"><div class="tmu"><div class="a">'+av+'</div><div><h3>'+esc(nm)+(p.is_admin?' · admin':'')+'</h3><small>'+esc(p.email||"")+'</small></div>'+(rk?'<span class="tmr">'+esc(rk)+'</span>':'')+'</div>'
    +bar("Chapter 1",x.ld+" of "+tl+" lessons",f,st)+bar("Journey checklist",x.jn+" of 7",x.jn/7,x.jn>=7?"g":x.jn>0?"o":"off")
-   +tmi(p)+'<p class="tmm">'+x.kc+' knowledge checks passed · Last active '+esc(String(x.last||"").slice(0,10))+' · Joined '+esc(String(p.created_at||"").slice(0,10))+'</p></div>'});
+   +tmi(p,T0.ai)+'<p class="tmm">'+x.kc+' knowledge checks passed · Last active '+esc(String(x.last||"").slice(0,10))+' · Joined '+esc(String(p.created_at||"").slice(0,10))+'</p></div>'});
  g.innerHTML=h+'</div>'};
-window.EO={snap:function(){var r=null;try{r=localStorage.getItem("eo-rk")}catch(e){}return{courses:JSON.parse(JSON.stringify(S.p)),journey:JY.slice(),rank:r===null?null:RK}},
- apply:function(st){S.p=st.courses;JY=st.journey.slice();RK=st.rank||0;try{localStorage.setItem("eo-course",JSON.stringify(S));localStorage.setItem("eo-jy",JSON.stringify(JY));if(st.rank!=null)localStorage.setItem("eo-rk",RK)}catch(e){}
+window.EO={snap:function(){var r=null;try{r=localStorage.getItem("eo-rk")}catch(e){}return{courses:JSON.parse(JSON.stringify(S.p)),journey:JY.slice(),rank:r===null?null:RK,info:JSON.parse(JSON.stringify(AI))}},
+ apply:function(st){S.p=st.courses;JY=st.journey.slice();RK=st.rank||0;AI=st.info||{};try{localStorage.setItem("eo-ai",JSON.stringify(AI));localStorage.setItem("eo-course",JSON.stringify(S));localStorage.setItem("eo-jy",JSON.stringify(JY));if(st.rank!=null)localStorage.setItem("eo-rk",RK)}catch(e){}
   updTrk();chips();var h=location.hash;if(h==="#progress")renderProgress();else if(/^#(course|complete)/.test(h))courseRoute(h)},
  changed:function(){}};
 
 function bar(label,right,f,st,cls){return '<div class="bw'+(cls||"")+'"><div class="bl"><span>'+label+'</span><span>'+right+'</span></div><div class="bt '+st+'"><i style="width:'+Math.round(f*100)+'%"></i></div></div>'}
+var AI={};try{var aq=JSON.parse(localStorage.getItem("eo-ai"));if(aq&&typeof aq==="object")AI=aq}catch(e){}
+function asave(){try{localStorage.setItem("eo-ai",JSON.stringify(AI))}catch(e){}if(window.EO)EO.changed()}
+var FL=[{k:"php",j:0},{k:"fp",j:1}],JE=-1,IE="",AIERR="";
+function aiForm(k,rm){var v=AI[k]||"";return '<form class="aif" data-aif="'+k+'"><label>'+u("ai_"+k+"_q")+'<input type="text" name="v" value="'+esc(v)+'" maxlength="60" autocomplete="off" autocapitalize="off" spellcheck="false"></label>'+(AIERR===k?'<p class="lge" role="alert">'+u("ai_err")+'</p>':'')+'<div class="r"><button type="submit" class="pbtn">'+u("ai_save")+'</button><button type="button" class="s2" data-aic="1">'+u("ai_cancel")+'</button>'+(rm?'<button type="button" class="s2" data-air="'+k+'">'+u("ai_rm")+'</button>':'')+'</div></form>'}
+function aiFocus(g){var i=g.querySelector("form[data-aif] input");if(i)try{i.focus()}catch(e){}}
+function aiRedraw(){var y=window.scrollY,h=location.hash;if(h==="#progress")renderProgress();else if(h==="#info")renderInfo();window.scrollTo(0,y);var g=document.getElementById(h==="#info"?"inx":"pgx");if(g)aiFocus(g)}
+document.addEventListener("submit",function(e){var f=e.target.closest&&e.target.closest("[data-aif]");if(!f)return;e.preventDefault();var k=f.getAttribute("data-aif"),v=f.elements.v.value.trim(),d=FL.filter(function(x){return x.k===k})[0];if(!d)return;
+ if(!v){AIERR=k;aiRedraw();return}
+ AI[k]=v;JY[d.j]=1;AIERR="";JE=-1;IE="";asave();jsave();updTrk();aiRedraw()});
+document.addEventListener("click",function(e){var c=e.target.closest&&e.target.closest("[data-aic],[data-air],[data-ie]");if(!c)return;
+ if(c.hasAttribute("data-aic")){JE=-1;IE="";AIERR="";aiRedraw()}
+ else if(c.hasAttribute("data-air")){var k=c.getAttribute("data-air"),d=FL.filter(function(x){return x.k===k})[0];delete AI[k];if(d)JY[d.j]=0;JE=-1;IE="";AIERR="";asave();jsave();updTrk();aiRedraw()}
+ else{IE="1";ISV=false;AIERR="";aiRedraw()}});
+window.renderPortal=function(){var g=document.getElementById("ptx");if(!g)return;var A=window.EOA;
+ if(!A.ready){g.innerHTML='<div class="lgw"><p class="sub">'+u("ld")+'</p></div>';return}
+ if(!A.user){location.hash="#login";return}
+ var q=lvl(),m=A.user.user_metadata||{},av=m.avatar_url||m.picture,nm=A.name(),
+  ah=av&&/^https:/.test(av)?'<img src="'+esc(av)+'" alt="" referrerpolicy="no-referrer">':esc((nm||"?").charAt(0).toUpperCase()),B=[];
+ if(RK>=1)B.push(["🏅",u("rk"+RK)]);
+ var ic=["🆔","🔍","📝","📚","🤝","🖥️","🛡️"];
+ for(var j=0;j<7;j++)if(JY[j])B.push([ic[j],u("b"+(j+1))]);
+ if(chDone("intro"))B.push(["📘",u("bint")]);
+ CHS.forEach(function(id,k){if(chDone(id))B.push(["🎓",u("bch",k+1)])});
+ var bd=B.length?'<div class="bgs">'+B.map(function(b){return '<div class="bg"><span class="bi" aria-hidden="true">'+b[0]+'</span>'+esc(b[1])+'</div>'}).join("")+'</div>':'<p class="hs">'+u("bge")+'</p><a class="pbtn" href="#license">'+u("bgs")+'</a>';
+ g.innerHTML='<div class="ptw"><a class="back" href="#home">&larr; '+u("back")+'</a><div class="pth"><div class="av" aria-hidden="true">'+ah+'</div><div class="nm"><h1>'+esc(nm)+'</h1><span class="pk">'+esc(lvlName(q)||u("pst"))+'</span></div><a class="rg" data-s="'+q.s+'" href="#progress" aria-label="'+u("vp")+'"><svg viewBox="0 0 44 44" aria-hidden="true"><circle class="tr" cx="22" cy="22" r="19"/><circle class="ar" cx="22" cy="22" r="19" transform="rotate(-90 22 22)" style="stroke-dashoffset:'+(119.4*(1-q.f))+'"/></svg><b class="l'+Math.min(q.label.length,3)+'">'+q.label+'</b></a></div>'
+ +'<div class="pcard"><h2>'+u("bgt")+'</h2>'+bd+'</div>'
+ +'<div class="ptl"><a href="#progress"><span class="ic" aria-hidden="true">📈</span><span>'+u("vp")+'<small>'+u("ptpt")+'</small></span><span class="pch">›</span></a><a href="#personal"><span class="ic" aria-hidden="true">👤</span><span>'+u("pp_t")+'<small>'+u("pps")+'</small></span><span class="pch">›</span></a><a href="#info"><span class="ic" aria-hidden="true">🪪</span><span>'+u("pti")+'<small>'+u("ptis")+'</small></span><span class="pch">›</span></a>'+(A.admin?'<a href="#team"><span class="ic" aria-hidden="true">👥</span><span>Team</span><span class="pch">›</span></a>':'')+'</div>'
+ +'<p class="svn" style="text-align:center">'+esc(A.user.email||"")+'<br>'+u("syn")+'</p><button type="button" class="lgo" data-lo="1" style="display:block;margin:6px auto 0">'+u("lgout")+'</button></div>';
+ window.scrollTo(0,0)};
+document.getElementById("ptx").addEventListener("click",function(e){if(e.target.closest("[data-lo]"))EOA.signOut()});
+var ISV=false;
+window.renderInfo=function(){var g=document.getElementById("inx");if(!g)return;var A=window.EOA;
+ if(!A.ready){g.innerHTML='<div class="lgw"><p class="sub">'+u("ld")+'</p></div>';return}
+ if(!A.user){location.hash="#login";return}
+ var body;
+ if(IE){body='<form class="pcard aif" data-aia="1"><div class="pvh"><h2>'+u("ai_t")+'</h2></div>'+FL.map(function(d){return '<label>'+u("ai_"+d.k)+'<input type="text" name="'+d.k+'" value="'+esc(AI[d.k]||"")+'" maxlength="60" autocomplete="off" autocapitalize="off" spellcheck="false"></label>'}).join("")+'<div class="r"><button type="submit" class="pbtn">'+u("ai_save")+'</button><button type="button" class="s2" data-aic="1">'+u("ai_cancel")+'</button></div></form>'}
+ else{body='<div class="pcard"><div class="pvh"><h2>'+u("ai_t")+'</h2><button type="button" class="pbtn2" data-ie="1">'+u("ai_edit")+'</button></div>'+(ISV?'<p class="pok" role="status">'+u("pp_saved")+'</p>':'')+FL.map(function(d){var v=AI[d.k];return '<div class="pvr"><small>'+u("ai_"+d.k)+'</small>'+(v?'<b>'+esc(v)+'</b>':'<b class="no">'+u("pp_none")+'</b>')+'</div>'}).join("")+'</div>'}
+ g.innerHTML='<div class="ptw"><a class="back" href="#portal">&larr; '+u("back")+'</a><h1>'+u("ai_t")+'</h1><p class="sub">'+u("ai_s")+'</p>'+body+'<p class="svn" style="text-align:center">'+u("ai_priv")+'</p></div>';
+ window.scrollTo(0,0);var ff=g.querySelector("form[data-aia] input");if(ff)try{ff.focus()}catch(e){}};
+document.addEventListener("submit",function(e){var f=e.target.closest&&e.target.closest("[data-aia]");if(!f)return;e.preventDefault();
+ FL.forEach(function(d){var v=f.elements[d.k].value.trim();if(v){AI[d.k]=v;JY[d.j]=1}else if(AI[d.k]){delete AI[d.k];JY[d.j]=0}});
+ IE="";ISV=true;asave();jsave();updTrk();renderInfo()});
+var PE=false,PERR=false,PSV=false,RFL=["George Almaraz","Jasmine Ortega","Robin Munoz"],ITK=["career","life","retire"];
+function pdate(d){if(!d)return "";var x=new Date(d+"T12:00:00");return isNaN(x)?esc(d):x.toLocaleDateString(es()?"es-MX":"en-US",{year:"numeric",month:"long",day:"numeric"})}
+window.renderPersonal=function(){var g=document.getElementById("psx");if(!g)return;var A=window.EOA;
+ if(!A.ready){g.innerHTML='<div class="lgw"><p class="sub">'+u("ld")+'</p></div>';return}
+ if(!A.user){location.hash="#login";return}
+ var head='<div class="ptw"><a class="back" href="#portal">&larr; '+u("back")+'</a><h1>'+u("pp_t")+'</h1><p class="sub">'+u("pp_s")+'</p>',foot='<p class="svn" style="text-align:center">'+u("pp_priv")+'</p></div>';
+ if(!A.profOK||!A.prof){g.innerHTML=head+'<div class="pcard"><p class="hs">'+u("pp_na")+'</p></div>'+foot;return}
+ var p=A.prof,m=A.user.user_metadata||{},ad=p.address||{},fn=p.full_name||m.full_name||m.name||"",body;
+ if(!PE){
+  var V=function(l,v){return '<div class="pvr"><small>'+l+'</small>'+(v?'<b>'+v+'</b>':'<b class="no">'+u("pp_none")+'</b>')+'</div>'},
+   adr=[ad.street,[ad.city,ad.state].filter(Boolean).join(", "),ad.zip].filter(Boolean).map(esc).join("<br>"),
+   rf=p.referred_by?(p.referred_by==="none"?u("obno"):esc(p.referred_by)):"",
+   it=(p.interests||[]).map(function(k){var i=ITK.indexOf(k);return i>-1?u("obi"+(i+1)):esc(k)}).join(", ");
+  body='<div class="pcard"><div class="pvh"><h2>'+u("pp_t")+'</h2><button type="button" class="pbtn2" data-pe="1">'+u("pp_edit")+'</button></div>'+(PSV?'<p class="pok" role="status">'+u("pp_saved")+'</p>':'')
+   +V(u("obfn_"),esc(fn))+V(u("pp_nn"),esc(p.nickname||""))+V(u("pp_ad"),adr)+V(u("obph"),esc(p.phone||""))+V(u("obdb"),pdate(p.dob))+V(u("pp_rf"),rf)+V(u("pp_in"),it)+'</div>'}
+ else{
+  var I=function(n,l,t,v,ac,x){return '<label>'+l+'<input type="'+t+'" name="'+n+'" value="'+esc(v||"")+'" autocomplete="'+ac+'"'+(x||"")+'></label>'};
+  body='<form class="pcard pef" data-pf="1"><div class="pvh"><h2>'+u("pp_t")+'</h2></div>'
+   +I("fn",u("obfn_"),"text",fn,"name",' maxlength="100"')+I("nn",u("pp_nn"),"text",p.nickname,"nickname",' maxlength="40"')
+   +'<label>'+u("pp_ad")+'<input type="text" name="st" placeholder="'+u("obst")+'" value="'+esc(ad.street||"")+'" autocomplete="address-line1" maxlength="120"></label><div class="r3"><label><small>'+u("obci")+'</small><input type="text" name="ci" value="'+esc(ad.city||"")+'" autocomplete="address-level2" maxlength="60"></label><label><small>'+u("obsa")+'</small><input type="text" name="sa" value="'+esc(ad.state||"")+'" autocomplete="address-level1" maxlength="2" style="text-transform:uppercase"></label><label><small>'+u("obzp")+'</small><input type="text" name="zp" value="'+esc(ad.zip||"")+'" autocomplete="postal-code" inputmode="numeric" maxlength="10"></label></div>'
+   +I("ph",u("obph"),"tel",p.phone,"tel",' inputmode="tel" maxlength="30"')+I("db",u("obdb"),"date",p.dob,"bday",' max="'+new Date().toISOString().slice(0,10)+'"')
+   +'<label>'+u("pp_rf")+'<select name="rf"><option value="">'+u("obch")+'</option>'+RFL.map(function(n){return '<option value="'+esc(n)+'"'+(p.referred_by===n?' selected':'')+'>'+esc(n)+'</option>'}).join("")+'<option value="none"'+(p.referred_by==="none"?' selected':'')+'>'+u("obno")+'</option></select></label>'
+   +'<div style="display:flex;flex-direction:column;gap:8px"><b style="font-size:15px">'+u("pp_in")+'</b>'+ITK.map(function(k,i){return '<label class="ck"><input type="checkbox" name="it" value="'+k+'"'+((p.interests||[]).indexOf(k)>-1?' checked':'')+'>'+u("obi"+(i+1))+'</label>'}).join("")+'</div>'
+   +(PERR?'<p class="lge" role="alert">'+u("pp_err")+'</p>':'')+'<div class="r"><button type="submit" class="pbtn">'+u("pp_save")+'</button><button type="button" class="s2" data-pc="1" style="background:none;border:0;font:inherit;font-weight:600;color:var(--muted);cursor:pointer;padding:10px 8px">'+u("pp_cancel")+'</button></div></form>'}
+ g.innerHTML=head+body+foot;if(!PE||!PERR)window.scrollTo(0,0)};
+document.getElementById("psx").addEventListener("click",function(e){if(e.target.closest("[data-pe]")){PE=true;PERR=false;PSV=false;renderPersonal()}else if(e.target.closest("[data-pc]")){PE=false;PERR=false;renderPersonal()}});
+document.getElementById("psx").addEventListener("submit",function(e){var f=e.target.closest("[data-pf]");if(!f)return;e.preventDefault();var A=EOA,el=f.elements,v=function(n){return el[n].value.trim()},
+ its=[].slice.call(f.querySelectorAll('input[name=it]:checked')).map(function(x){return x.value}),
+ st=v("st"),ci=v("ci"),sa=v("sa").toUpperCase(),zp=v("zp"),
+ r={full_name:v("fn")||null,nickname:v("nn")||null,phone:v("ph")||null,dob:v("db")||null,referred_by:v("rf")||null,interests:its,address:(st||ci||sa||zp)?{street:st,city:ci,state:sa,zip:zp}:null};
+ if(!(A.prof&&A.prof.onboarded_at))r.onboarded_at=new Date().toISOString();
+ var b=f.querySelector("button[type=submit]");if(b)b.disabled=true;
+ A.saveProf(r).then(function(){A.prof=Object.assign(A.prof||{},r);PE=false;PERR=false;PSV=true;A.refresh();renderPersonal()},function(){PERR=true;renderPersonal()})});
 window.renderProgress=function(){var g=document.getElementById("pgx");if(!g)return;var q=lvl(),lg=es()?"es":"en",TT=T[lg],p1=PR("ch1"),pi=PR("intro"),
  c1=COURSES.ch1,ci=COURSES.intro,l1=c1.lessons.filter(function(l){return p1.d[l.id]}).length,li=ci.lessons.filter(function(l){return pi.d[l.id]}).length,
  tk=0;c1.lessons.forEach(function(l){l.s.forEach(function(x){if(x.q)tk++})});
@@ -536,7 +652,8 @@ window.renderProgress=function(){var g=document.getElementById("pgx");if(!g)retu
  var fi=chFrac("intro");rows+=bar(TT.li0,Math.round(fi*100)+"%",fi,stOf(fi,chDone("intro")));
  var lrows="";c1.lessons.forEach(function(l){var ff=p1.d[l.id]?1:Math.min((p1.at[l.id]||0)/l.s.length,.99);lrows+=bar(es()&&ES.ch1?ES.ch1.lessons.filter(function(x){return x.id===l.id})[0].t:l.t,Math.round(ff*100)+"%",ff,stOf(ff,!!p1.d[l.id]))});
  var jn=JY.reduce(function(a,b){return a+(b?1:0)},0),jl='<div class="seg7" aria-hidden="true">'+JY.map(function(v){return '<i class="'+(v?"on":"")+'"></i>'}).join("")+'</div><div role="group" aria-label="'+u("jyt")+'">';
- for(var j=0;j<7;j++)jl+='<button type="button" class="jy" role="checkbox" aria-checked="'+(JY[j]?"true":"false")+'" data-j="'+j+'"><span class="bx">'+(JY[j]?"✓":"")+'</span><span class="t">'+u("j"+(j+1))+'</span></button>';
+ for(var j=0;j<7;j++){if(j<2){var fk=FL[j].k;jl+='<button type="button" class="jy'+(JY[j]?' dn':'')+'" aria-expanded="'+(JE===j?"true":"false")+'" data-j="'+j+'"><span class="bx">'+(JY[j]?"✓":"")+'</span><span class="t">'+u("j"+(j+1))+(AI[fk]?'<span class="jv">'+esc(AI[fk])+'</span>':'')+'</span></button>'+(JE===j?aiForm(fk,!!JY[j]):'')}
+ else jl+='<button type="button" class="jy" role="checkbox" aria-checked="'+(JY[j]?"true":"false")+'" data-j="'+j+'"><span class="bx">'+(JY[j]?"✓":"")+'</span><span class="t">'+u("j"+(j+1))+'</span></button>'}
  jl+='</div>';
  var rank='<div class="pcard"><h2>'+u("rkt")+'</h2><p class="hs">'+u("rks")+'</p><div class="rkc">'+[1,2,3,4,5].map(function(k){return '<button type="button" class="rkb" data-rk="'+k+'" aria-pressed="'+(RK===k?"true":"false")+'"><b>'+RC[k]+'</b>'+u("rk"+k)+'</button>'}).join("")+'</div></div>';
  g.innerHTML='<div class="pgw"><a class="back" href="#home">&larr; '+u("back")+'</a><h1>'+u("pgt")+'</h1><p class="sub">'+u("pgs")+'</p>'+hero+tiles+rank+
@@ -546,7 +663,7 @@ window.renderProgress=function(){var g=document.getElementById("pgx");if(!g)retu
  window.scrollTo(0,0)};
 document.getElementById("pgx").addEventListener("click",function(e){var y=window.scrollY,r=e.target.closest("[data-rk]"),b=e.target.closest("[data-j]");
  if(r){var k=+r.dataset.rk;RK=RK===k?0:k;try{localStorage.setItem("eo-rk",RK)}catch(x){}updTrk();if(window.EO)EO.changed();renderProgress();window.scrollTo(0,y);return}
- if(!b)return;var j=+b.dataset.j;JY[j]=JY[j]?0:1;jsave();updTrk();renderProgress();window.scrollTo(0,y)});
+ if(!b)return;var j=+b.dataset.j;if(j<2){JE=JE===j?-1:j;AIERR="";renderProgress();window.scrollTo(0,y);var ff=document.querySelector("#pgx form[data-aif] input");if(ff)try{ff.focus({preventScroll:true})}catch(x){}return}JY[j]=JY[j]?0:1;jsave();updTrk();renderProgress();window.scrollTo(0,y)});
 
 function setC(id){if(!COURSES[id])id="intro";if(CID!==id){CID=id;L.id=""}}
 function PR(id){return S.p[id]||(S.p[id]={d:{},at:{},ck:{}})}
@@ -636,7 +753,7 @@ updTrk();route();
  if(!A||!EO||!A.enabled)return;
  A.ready=false;
  var sb=null,timer=null,pulled=null;
- function clearLocal(){try{["eo-course","eo-jy","eo-rk"].forEach(function(k){localStorage.removeItem(k)})}catch(e){}}
+ function clearLocal(){try{["eo-course","eo-jy","eo-rk","eo-ai"].forEach(function(k){localStorage.removeItem(k)})}catch(e){}}
  var sc=document.createElement("script");sc.src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2";sc.async=true;
  sc.onload=init;sc.onerror=function(){A.err="net";A.ready=true;A.refresh()};document.head.appendChild(sc);
  function init(){
@@ -661,6 +778,7 @@ updTrk();route();
  A.goNext=function(){goNext()};
  function goNext(){var n=null;try{n=sessionStorage.getItem("eo-next");sessionStorage.removeItem("eo-next")}catch(e){}if(n&&/^#lesson\//.test(n)&&A.user)location.hash=n}
  setTimeout(function(){if(!A.ready){A.ready=true;A.refresh()}},4000);
+ var INF=false;
  function blank(){return{d:{},at:{},ck:{}}}
  function merge(l,r){var out={courses:{},journey:[],rank:null},ids={};
   Object.keys(l.courses).concat(Object.keys(r.courses)).forEach(function(k){ids[k]=1});
@@ -673,12 +791,14 @@ updTrk();route();
    out.courses[id]=o});
   for(var i=0;i<7;i++)out.journey[i]=r.journey[i]!=null?r.journey[i]:(l.journey[i]?1:0);
   out.rank=r.rank!=null?r.rank:(l.rank!=null?l.rank:null);
+  out.info={};var li=l.info||{},ri=r.info||{};Object.keys(li).concat(Object.keys(ri)).forEach(function(k){var v=li[k]||ri[k];if(v)out.info[k]=v});
+  if(out.info.php)out.journey[0]=1;if(out.info.fp)out.journey[1]=1;
   return out}
  function pull(){var uid=A.user.id;if(pulled===uid){goNext();return}
   var T=function(t){return sb.from(t).select("*")};
-  Promise.all([T("course_status"),T("lesson_progress"),T("knowledge_checks"),T("journey_steps"),sb.from("profiles").select("agent_rank,is_admin").eq("id",uid).maybeSingle()]).then(function(r){
+  Promise.all([T("course_status"),T("lesson_progress"),T("knowledge_checks"),T("journey_steps"),sb.from("profiles").select("agent_rank,is_admin").eq("id",uid).maybeSingle(),sb.from("agent_info").select("data").eq("user_id",uid).maybeSingle().then(function(x){return x.error?{data:null,error:null}:x},function(){return{data:null,error:null}})]).then(function(r){
    for(var i=0;i<r.length;i++)if(r[i].error)throw r[i].error;
-   var rem={courses:{},journey:[null,null,null,null,null,null,null],rank:null};
+   var rem={courses:{},journey:[null,null,null,null,null,null,null],rank:null,info:(r[5].data&&r[5].data.data)||{}};INF=!!r[5].data;
    function C(id){return rem.courses[id]||(rem.courses[id]=blank())}
    r[0].data.forEach(function(x){var c=C(x.course_id);if(x.started)c.st=1;if(x.completed_at)c.done=x.completed_at});
    r[1].data.forEach(function(x){var c=C(x.course_id);if(x.completed){c.d[x.lesson_id]=1;c.at[x.lesson_id]=0}else c.at[x.lesson_id]=x.section_idx||0});
@@ -700,12 +820,13 @@ updTrk();route();
   return Promise.all([
    sb.from("profiles").upsert({id:uid,email:A.user.email||null,full_name:((A.prof&&A.prof.full_name)||meta.full_name||meta.name)||undefined,avatar_url:meta.avatar_url||meta.picture||null,agent_rank:m.rank,updated_at:now}),
    up("course_status",cs,"user_id,course_id"),up("lesson_progress",lp,"user_id,course_id,lesson_id"),
-   up("knowledge_checks",kc,"user_id,course_id,check_key"),up("journey_steps",js,"user_id,step")
+   up("knowledge_checks",kc,"user_id,course_id,check_key"),up("journey_steps",js,"user_id,step"),
+   (Object.keys(m.info||{}).length||INF)?up("agent_info",[{user_id:uid,data:m.info||{},updated_at:now}],"user_id").then(function(x){if(x&&!x.error)INF=true;return {}}):Promise.resolve({})
   ]).then(function(rs){rs.forEach(function(x){if(x&&x.error)throw x.error})}).catch(function(e){console.warn("ElevateOne sync (push)",e)})}
  A.fetchTeam=function(){if(!A.admin||!sb)return;var q=function(t){return sb.from(t).select("*")};
-  Promise.all([sb.from("profiles").select("*").order("created_at",{ascending:false}),q("course_status"),q("lesson_progress"),q("knowledge_checks"),q("journey_steps")]).then(function(r){
+  Promise.all([sb.from("profiles").select("*").order("created_at",{ascending:false}),q("course_status"),q("lesson_progress"),q("knowledge_checks"),q("journey_steps"),q("agent_info").then(function(x){return x.error?{data:[],error:null}:x},function(){return{data:[],error:null}})]).then(function(r){
    for(var i=0;i<r.length;i++)if(r[i].error)throw r[i].error;
-   var t=r[0].data.slice();t.cs=r[1].data;t.lp=r[2].data;t.kc=r[3].data;t.js=r[4].data;A.team=t;A.teamErr="";A.refresh()
+   var t=r[0].data.slice();t.cs=r[1].data;t.lp=r[2].data;t.kc=r[3].data;t.js=r[4].data;t.ai=r[5].data||[];A.team=t;A.teamErr="";A.refresh()
   }).catch(function(e){console.warn("ElevateOne team",e);A.teamErr="x";A.refresh()})};
  EO.changed=function(){if(!A.user||pulled!==A.user.id)return;clearTimeout(timer);timer=setTimeout(function(){push(EO.snap())},800)};
 })();
